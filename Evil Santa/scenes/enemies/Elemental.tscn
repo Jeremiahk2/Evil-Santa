@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpnytpqi8ajkb"]
+
+[ext_resource type="Script" path="res://scenes/enemies/Elemental.gd" id="1_b4up4"]
+[ext_resource type="Texture2D" uid="uid://b8vdko0gpa2v1" path="res://Assets/Elemental.png" id="2_hjd2s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v171n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbpbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vbbx"]
+
+[node name="Elemental" type="CharacterBody2D"]
+script = ExtResource("1_b4up4")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="alert" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_v171n")
+
+[node name="range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_dbpbi")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6vbbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_hjd2s")
+
+[connection signal="body_entered" from="alert" to="." method="_on_alert_body_entered"]
+[connection signal="body_exited" from="alert" to="." method="_on_alert_body_exited"]
+[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
