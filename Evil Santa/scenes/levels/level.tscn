@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0qkxdf3aks0i"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_svhed"]
+[ext_resource type="PackedScene" uid="uid://cxu5yqf5v6g6y" path="res://scenes/player/player.tscn" id="2_xnqrm"]
+
+[node name="Level" type="Node2D"]
+position = Vector2(2, 0)
+script = ExtResource("1_svhed")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="BackGround" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_xnqrm")]
+position = Vector2(144, 113)
+scale = Vector2(0.25, 0.25)
