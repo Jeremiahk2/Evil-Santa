@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://rb4ufsbjgalr"]
+
+[ext_resource type="Script" path="res://scenes/enemies/ElementalProjectile.gd" id="1_kgvon"]
+[ext_resource type="Texture2D" uid="uid://crg3k3udm2pr5" path="res://Assets/ElementalProjectile.png" id="2_l4o4g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bpw0"]
+size = Vector2(17, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6mdb"]
+
+[node name="ElementalProjectile" type="CharacterBody2D"]
+script = ExtResource("1_kgvon")
+
+[node name="alert" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
+shape = SubResource("RectangleShape2D_5bpw0")
+
+[node name="Death" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x6mdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_l4o4g")
+offset = Vector2(-3, 0)
