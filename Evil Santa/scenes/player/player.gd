@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var ACCELERATION = 1500
 @export var FRICTION = 1200
 
+<<<<<<< HEAD
 @export var axis = Vector2.ZERO
 
 @onready var animation = $AnimationPlayer
@@ -15,6 +16,11 @@ func _physics_process(delta):
 		animation.play("Idle")
 	move(delta)
 	look_at(get_global_mouse_position())
+||||||| 0de5432
+func _process(delta):
+=======
+func _process(_delta):
+>>>>>>> ecda1a5a74981ba5ef6602db4f526c33a9c8beed
 	
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
