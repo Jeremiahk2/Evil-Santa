@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://buavqwdaxn0ya"]
+[gd_scene load_steps=3 format=3 uid="uid://buavqwdaxn0ya"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_eg6hv"]
 
+[sub_resource type="TileSet" id="TileSet_cobij"]
+
 [node name="Inside" instance=ExtResource("1_eg6hv")]
+
+[node name="TileMap" type="TileMap" parent="BackGround" index="0"]
+tile_set = SubResource("TileSet_cobij")
+format = 2
+
+[node name="Player" parent="." index="1"]
+position = Vector2(35, 308)
