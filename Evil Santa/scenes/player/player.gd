@@ -29,9 +29,8 @@ func move(delta):
 		
 	else:
 		apply_movement(axis * ACCELERATION * delta) #apply movement
-
 	move_and_slide()
-	
+	Globals.player_pos = global_position
 func apply_friction(amount):
 	if velocity.length() > amount:
 		velocity -= velocity.normalized() * amount

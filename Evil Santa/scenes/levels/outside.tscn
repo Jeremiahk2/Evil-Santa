@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dt8rlqurqk3kh"]
+[gd_scene load_steps=17 format=3 uid="uid://dt8rlqurqk3kh"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_of05t"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_m8quq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bts4pel6wonm5" path="res://Assets/Walls.png" id="6_14kml"]
 [ext_resource type="PackedScene" uid="uid://c85prybfhfmcf" path="res://scenes/levels/gate.tscn" id="8_7rrkf"]
 [ext_resource type="PackedScene" uid="uid://c5nexqx88icl1" path="res://scenes/enemies/Elf.tscn" id="9_e1x8u"]
+[ext_resource type="PackedScene" uid="uid://cbws2mtjd4g0b" path="res://scenes/enemies/deer.tscn" id="10_l6l7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnuh8"]
 texture = ExtResource("2_xy4hx")
@@ -2127,5 +2128,11 @@ layer_2/tile_data = PackedInt32Array(3604602, 1572868, 15, 3670138, 1572868, 16,
 [node name="Gate" parent="." index="1" instance=ExtResource("8_7rrkf")]
 
 [node name="Elf" parent="." index="3" instance=ExtResource("9_e1x8u")]
+position = Vector2(74, -284)
+
+[node name="Deer" parent="." index="4" instance=ExtResource("10_l6l7j")]
+position = Vector2(376, 297)
+
+[node name="Projectiles" type="Node2D" parent="." index="5"]
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
