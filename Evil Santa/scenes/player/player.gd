@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var MAX_SPEED = 200
 @export var ACCELERATION = 1500
 @export var FRICTION = 1200
-
+var health = 100
 @export var axis = Vector2.ZERO
 
 @onready var animation = $AnimationPlayer
@@ -42,3 +42,12 @@ func apply_friction(amount):
 func apply_movement(accel):
 	velocity += accel
 	velocity = velocity.limit_length(MAX_SPEED)
+
+func player():
+	pass
+	
+func incoming_damage(dmg):
+	health = health - dmg
+	print(health)
+	if health <= 0:
+		self.queue_free()

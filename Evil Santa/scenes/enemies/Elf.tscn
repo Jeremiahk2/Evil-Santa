@@ -13,12 +13,17 @@
 script = ExtResource("1_utyd3")
 
 [node name="alert" type="Area2D" parent="."]
+scale = Vector2(15, 15)
+collision_layer = 2
+collision_mask = 2
 
 [node name="radius" type="CollisionShape2D" parent="alert"]
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_7xirg")
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_5rhwk")
@@ -36,3 +41,4 @@ texture = ExtResource("2_xpui5")
 [connection signal="body_exited" from="alert" to="." method="_on_alert_body_exited"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

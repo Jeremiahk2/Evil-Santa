@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-var speed = 100
+var speed = 50
 var health = 50
 var player = null
 var Hero = null
@@ -44,10 +44,10 @@ func _on_hit_box_body_entered(body):
 
 func _on_hit_box_body_exited(body):
 	if body.has_method("player"):
-		player_inattack_zone = true
+		player_inattack_zone = false
 	
 func deal_with_damage():
-	if Hero != null && attack_cooldown:
+	if player != null && attack_cooldown && player_inattack_zone:
 		Hero.incoming_damage(15)
 		attack_cooldown = false
 		$AttackTimer.start()
