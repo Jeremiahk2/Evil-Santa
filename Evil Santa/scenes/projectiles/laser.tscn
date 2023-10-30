@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu6jfc80py8y"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_q6vs5"]
+[ext_resource type="Texture2D" uid="uid://yq1d5iaddo1u" path="res://Assets/footagecrate-looping-blaster-bolt-basic-prev-full.png" id="2_gg47x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jm58g"]
+radius = 3.0
+height = 24.0
+
+[node name="Laser" type="Area2D"]
+collision_layer = 13
+collision_mask = 13
+script = ExtResource("1_q6vs5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.10543e-15, 6)
+rotation = -1.5708
+scale = Vector2(0.0374995, 0.0485173)
+texture = ExtResource("2_gg47x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jm58g")
