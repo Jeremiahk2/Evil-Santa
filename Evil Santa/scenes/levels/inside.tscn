@@ -61,7 +61,6 @@ texture = ExtResource("3_p20sg")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1131,3 +1130,4 @@ layer_3/tile_data = PackedInt32Array(65548, 458754, 13, 131084, 458754, 14, 6557
 
 [node name="Player" parent="." index="1"]
 position = Vector2(502, 305)
+scale = Vector2(0.15, 0.15)

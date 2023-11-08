@@ -10,6 +10,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vbbx"]
 
 [node name="Elemental" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_b4up4")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
