@@ -5,8 +5,13 @@ extends CharacterBody2D
 @export var FRICTION = 1200
 var health = 100
 @export var axis = Vector2.ZERO
+@export var projectileSpeed = 100
 
 @onready var animation = $AnimationPlayer
+
+var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
+
+@onready var attackTimer = $AttackTimer
 
 func _physics_process(delta):
 	if velocity.length() > 0:
@@ -15,6 +20,9 @@ func _physics_process(delta):
 		animation.play("Idle")
 	move(delta)
 	look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed("left_click") and attackTimer.is_stopped():
+		var bullet_direction = self.global_position.direction_to(get_global_mouse_position())
+		shoot_bullet(bullet_direction)
 	
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -50,3 +58,14 @@ func incoming_damage(dmg):
 	print(health)
 	if health <= 0:
 		self.queue_free()
+	
+func shoot_bullet(bullet_direction: Vector2):
+	if BULLET:
+		var bullet = BULLET.instantiate()
+		get_tree().current_scene.add_child(bullet)
+		bullet.global_position = self.global_position
+		
+		var bullet_rotation = bullet_direction.angle()
+		bullet.rotation = bullet_rotation
+		
+		attackTimer.start()

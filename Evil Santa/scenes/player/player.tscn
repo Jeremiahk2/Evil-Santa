@@ -82,3 +82,7 @@ zoom = Vector2(2, 2)
 libraries = {
 "": SubResource("AnimationLibrary_uklir")
 }
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
