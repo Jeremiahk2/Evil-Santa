@@ -16,8 +16,7 @@ script = ExtResource("1_utyd3")
 
 [node name="alert" type="Area2D" parent="."]
 scale = Vector2(15, 15)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 128
 
 [node name="radius" type="CollisionShape2D" parent="alert"]
 scale = Vector2(3, 3)
@@ -25,7 +24,7 @@ shape = SubResource("CircleShape2D_7xirg")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_5rhwk")

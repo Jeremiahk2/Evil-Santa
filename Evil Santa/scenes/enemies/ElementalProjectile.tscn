@@ -9,9 +9,13 @@ size = Vector2(17, 7)
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6mdb"]
 
 [node name="ElementalProjectile" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 47
 script = ExtResource("1_kgvon")
 
 [node name="alert" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
 shape = SubResource("RectangleShape2D_5bpw0")

@@ -8,14 +8,14 @@ func _physics_process(delta):
 	global_position += SPEED * direction * delta
 	
 func destroy():
-	queue_free
+	queue_free()
 
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	destroy()
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	destroy()
 
 

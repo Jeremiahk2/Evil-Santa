@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfa4g042mcyvf" path="res://scenes/player/NewPlayerSpriteSheet.png" id="2_dtucr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gux0"]
-size = Vector2(128, 128)
+size = Vector2(146.667, 153.333)
 
 [sub_resource type="Animation" id="Animation_krm0m"]
 resource_name = "Idle"
@@ -62,7 +62,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.15, 0.15)
-collision_mask = 30
+collision_mask = 94
 script = ExtResource("1_jsl7q")
 ACCELERATION = 1000
 FRICTION = 1000
@@ -73,10 +73,8 @@ texture = ExtResource("2_dtucr")
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.17891e-06, -3.33333)
 shape = SubResource("RectangleShape2D_5gux0")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
