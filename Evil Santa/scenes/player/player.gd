@@ -14,12 +14,19 @@ var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
 @onready var attackTimer = $AttackTimer
 
 func _physics_process(delta):
+	#if the player is moving then play the running animation
 	if velocity.length() > 0:
 		animation.play("Run")
 	else:
 		animation.play("Idle")
+		
+	#move the player
 	move(delta)
+	
+	#rotate the player to face the mouse
 	look_at(get_global_mouse_position())
+	
+	#shoot when the player left-clicks and the weapon was not just shot (timer is currently .2s)
 	if Input.is_action_just_pressed("left_click") and attackTimer.is_stopped():
 		var bullet_direction = self.global_position.direction_to(get_global_mouse_position())
 		shoot_bullet(bullet_direction)
@@ -39,6 +46,7 @@ func move(delta):
 		apply_movement(axis * ACCELERATION * delta) #apply movement
 	move_and_slide()
 	Globals.player_pos = global_position
+
 func apply_friction(amount):
 	if velocity.length() > amount:
 		velocity -= velocity.normalized() * amount
@@ -63,7 +71,7 @@ func shoot_bullet(bullet_direction: Vector2):
 	if BULLET:
 		var bullet = BULLET.instantiate()
 		get_tree().current_scene.add_child(bullet)
-		bullet.global_position = self.global_position
+		bullet.global_position = $Marker2D.global_position
 		
 		var bullet_rotation = bullet_direction.angle()
 		bullet.rotation = bullet_rotation

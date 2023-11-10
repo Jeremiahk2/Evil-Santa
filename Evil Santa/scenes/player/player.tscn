@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jsl7q"]
 [ext_resource type="Texture2D" uid="uid://bfa4g042mcyvf" path="res://scenes/player/NewPlayerSpriteSheet.png" id="2_dtucr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gux0"]
-size = Vector2(146.667, 153.333)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgwdi"]
 
 [sub_resource type="Animation" id="Animation_krm0m"]
 resource_name = "Idle"
@@ -74,7 +73,8 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.17891e-06, -3.33333)
-shape = SubResource("RectangleShape2D_5gux0")
+scale = Vector2(9.73851, 9.54561)
+shape = SubResource("CircleShape2D_jgwdi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -84,3 +84,6 @@ libraries = {
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(93.3333, 0)
