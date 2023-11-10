@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxu5yqf5v6g6y"]
+[gd_scene load_steps=9 format=3 uid="uid://cxu5yqf5v6g6y"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jsl7q"]
 [ext_resource type="Texture2D" uid="uid://bfa4g042mcyvf" path="res://scenes/player/NewPlayerSpriteSheet.png" id="2_dtucr"]
+[ext_resource type="PackedScene" uid="uid://ybygshpmtr67" path="res://scenes/User Interface/HUD.tscn" id="3_y0kcx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgwdi"]
 
@@ -87,3 +88,5 @@ one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(93.3333, 0)
+
+[node name="HUD" parent="." instance=ExtResource("3_y0kcx")]

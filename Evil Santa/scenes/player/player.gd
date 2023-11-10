@@ -63,9 +63,11 @@ func player():
 	
 func incoming_damage(dmg):
 	health = health - dmg
+	$"HUD/Health Bar/Health Bar".update_health(health / 10.0)
 	print(health)
 	if health <= 0:
 		self.queue_free()
+	
 	
 func shoot_bullet(bullet_direction: Vector2):
 	if BULLET:

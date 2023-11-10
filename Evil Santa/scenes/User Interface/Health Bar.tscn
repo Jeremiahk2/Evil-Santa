@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc3v7707m8no3"]
+
+[ext_resource type="Texture2D" uid="uid://dewkod5lnmucn" path="res://Assets/hud_heartFull.png" id="1_2ewnu"]
+[ext_resource type="Script" path="res://scenes/User Interface/Health Bar.gd" id="1_yu6pg"]
+
+[node name="Health Bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health Bar" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 625.0
+offset_right = 575.0
+offset_bottom = 670.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 5
+script = ExtResource("1_yu6pg")
+
+[node name="One" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Two" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Three" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Four" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Five" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Six" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Seven" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Eight" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Nine" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
+
+[node name="Ten" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+texture = ExtResource("1_2ewnu")
