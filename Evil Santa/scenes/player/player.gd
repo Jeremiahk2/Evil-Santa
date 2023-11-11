@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var all_interactions = []
-@onready var interactLabel = $"Interactions/InteractLabel"
+@onready var interactLabel = $"HUD/InteractionLabel"
 signal enter_gate
 
 @export var MAX_SPEED = 200
@@ -10,6 +10,7 @@ signal enter_gate
 var health = 100
 @export var axis = Vector2.ZERO
 @export var projectileSpeed = 100
+@onready var creditsLabel = $"HUD/CreditsLabel"
 
 @onready var animation = $AnimationPlayer
 
@@ -19,6 +20,7 @@ var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
 
 func _ready():
 	update_interactions()
+	update_credits()
 
 func _physics_process(delta):
 	#if the player is moving then play the running animation
@@ -72,11 +74,10 @@ func player():
 	pass
 	
 func incoming_damage(dmg):
-	health = health - dmg
-	$"HUD/Health Bar/Health Bar".update_health(health / 10.0)
-	print(health)
-	if health <= 0:
-		self.queue_free()
+	Globals.health = Globals.health - dmg
+	$"HUD/Health Bar/Health Bar".update_health(Globals.health / 10.0)
+	if Globals.health <= 0:
+		get_tree().change_scene_to_file("res://scenes/Menus/DeathScreen.tscn")
 	
 	
 func shoot_bullet(bullet_direction: Vector2):
@@ -103,9 +104,9 @@ func _on_interaction_area_area_exited(area):
 
 func update_interactions():
 	if all_interactions:
-		interactLabel.global_position = all_interactions[0].global_position
+		#interactLabel.global_position = all_interactions[0].global_position
 		#interactLabel.global_position.y -= 5
-		interactLabel.global_position.x -= 30
+		#interactLabel.global_position.x -= 30
 		interactLabel.text = all_interactions[0].interact_label
 		interactLabel.show()
 	else:
@@ -121,4 +122,9 @@ func execute_interaction():
 			"gate":
 				print(cur_interaction.interact_value)
 				enter_gate.emit() 
-			
+#credits
+func update_credits():
+	creditsLabel.text = "Credits: " + str(Globals.credits)
+
+func increase_credits(numCredits):
+	Globals.credits += numCredits

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3wq3dofct7fu"]
+
+[ext_resource type="Script" path="res://scenes/Menus/DeathScreen.gd" id="1_qdqnp"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qdqnp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 257.0
+offset_right = 679.0
+offset_bottom = 327.0
+bbcode_enabled = true
+text = "[b][font_size={50}]YOU DIED[/font_size][/b]"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 378.0
+offset_right = 618.0
+offset_bottom = 444.0
+text = "Back To Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

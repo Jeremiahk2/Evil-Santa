@@ -7,6 +7,8 @@ var heart_full = preload("res://assets/hud_heartFull.png")
 var heart_empty = preload("res://assets/hud_heartEmpty.png")
 var heart_half = preload("res://assets/hud_heartHalf.png")
 
+func _ready():
+	update_health(Globals.health / 10.0)
 
 func update_health(value):
 	match mode:
@@ -32,7 +34,6 @@ func update_empty(value):
 func update_partial(value):
 	for i in get_child_count():
 		if value >= i + 1:
-			print (value)
 			get_child(i).texture = heart_full
 		elif value > i:
 			get_child(i).texture = heart_half
