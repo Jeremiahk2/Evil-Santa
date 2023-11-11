@@ -8,7 +8,11 @@ var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
 
 @onready var shooting = false
 
+@onready var reloading = false
+
 @onready var isAvailable = false
+
+var shotsFired = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,16 +22,25 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if isAvailable:
-		if Input.is_action_just_pressed("left_click") and attackTimer.is_stopped():
+		if shotsFired > 6 and !shooting:
+			reloading = true
+			animation.play("reload")
+			await get_tree().create_timer(1.5).timeout
+			shotsFired = 0
+			reloading = false
+		elif Input.is_action_pressed("left_click") and attackTimer.is_stopped() and !reloading:
+			print("here1")
 			shooting = true
 			var bullet_direction = self.global_position.direction_to(get_global_mouse_position())
 			animation.play("shoot")
 			
 			shoot_bullet(bullet_direction)
-			await get_tree().create_timer(0.4).timeout
+			await get_tree().create_timer(0.2).timeout
+			shotsFired = shotsFired + 1
 			shooting = false
 		else:
-			if !shooting:
+			if !shooting && !reloading:
+				print(attackTimer.is_stopped())
 				animation.play("ready")
 				
 func trueAvailable():

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ddaqmgma8h10i" path="res://scenes/player/weapons/pistol.png" id="1_iflbs"]
 [ext_resource type="Script" path="res://scenes/player/weapons/pistol.gd" id="2_7i8ee"]
 
-[sub_resource type="Animation" id="Animation_q71n5"]
-resource_name = "ready"
+[sub_resource type="Animation" id="Animation_6kse3"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,8 +18,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_6kse3"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_q71n5"]
+resource_name = "ready"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
