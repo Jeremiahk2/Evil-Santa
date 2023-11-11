@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var all_interactions = []
+@onready var interactLabel = $"Interactions/InteractLabel"
+signal enter_gate
+
 @export var MAX_SPEED = 200
 @export var ACCELERATION = 1500
 @export var FRICTION = 1200
@@ -13,6 +17,9 @@ var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
 
 @onready var attackTimer = $AttackTimer
 
+func _ready():
+	update_interactions()
+
 func _physics_process(delta):
 	#if the player is moving then play the running animation
 	if velocity.length() > 0:
@@ -22,6 +29,9 @@ func _physics_process(delta):
 		
 	#move the player
 	move(delta)
+	
+	if Input.is_action_just_pressed("Interact"):
+		execute_interaction()
 	
 	#rotate the player to face the mouse
 	look_at(get_global_mouse_position())
@@ -79,3 +89,36 @@ func shoot_bullet(bullet_direction: Vector2):
 		bullet.rotation = bullet_rotation
 		
 		attackTimer.start()
+
+############## Interaction  Methods #################
+
+func _on_interaction_area_area_entered(area):
+	all_interactions.insert(0, area)
+	update_interactions()
+
+
+func _on_interaction_area_area_exited(area):
+	all_interactions.erase(area)
+	update_interactions()
+
+func update_interactions():
+	if all_interactions:
+		interactLabel.global_position = all_interactions[0].global_position
+		#interactLabel.global_position.y -= 5
+		interactLabel.global_position.x -= 30
+		interactLabel.text = all_interactions[0].interact_label
+		interactLabel.show()
+	else:
+		interactLabel.hide()
+
+
+func execute_interaction():
+	if all_interactions:
+		var cur_interaction = all_interactions[0]
+		match cur_interaction.interact_type:
+			"print_text": 
+				print(cur_interaction.interact_value)
+			"gate":
+				print(cur_interaction.interact_value)
+				enter_gate.emit() 
+			

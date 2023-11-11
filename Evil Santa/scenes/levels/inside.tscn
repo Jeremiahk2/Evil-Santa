@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://buavqwdaxn0ya"]
+[gd_scene load_steps=8 format=3 uid="uid://buavqwdaxn0ya"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_eg6hv"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_rf4s1"]
 [ext_resource type="TileSet" uid="uid://bcytheu7fghtt" path="res://scenes/levels/inside.tres" id="3_ai3ko"]
+[ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="4_80754"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltgs4"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whgss"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67mh8"]
+size = Vector2(16, 16)
 
 [node name="Inside" instance=ExtResource("1_eg6hv")]
 position = Vector2(8, 8)
@@ -54,3 +64,30 @@ position = Vector2(2, 0)
 tile_set = ExtResource("3_ai3ko")
 format = 2
 layer_0/tile_data = PackedInt32Array(524298, 524290, 6, 1966089, 524290, 6, 1966110, 524290, 6, 1900597, 458754, 5, 1966133, 458754, 6, 458805, 458754, 5, 524341, 458754, 6, 458782, 458754, 5, 524318, 458754, 6)
+
+[node name="DoorToNextWeapon" parent="." index="3" instance=ExtResource("4_80754")]
+position = Vector2(200, 56)
+interact_label = "[e] to open door"
+interact_type = "gate"
+interact_value = "getting next weapon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToNextWeapon" index="0"]
+shape = SubResource("RectangleShape2D_ltgs4")
+
+[node name="DoorToFinalBoss" parent="." index="4" instance=ExtResource("4_80754")]
+position = Vector2(584, 56)
+interact_label = "[e] to open door"
+interact_type = "gate"
+interact_value = "going to next boss"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToFinalBoss" index="0"]
+shape = SubResource("RectangleShape2D_whgss")
+
+[node name="DoorToPrevBoss" parent="." index="5" instance=ExtResource("4_80754")]
+position = Vector2(1064, 56)
+interact_label = "[e] to open door"
+interact_type = "gate"
+interact_value = "going to prev boss"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToPrevBoss" index="0"]
+shape = SubResource("RectangleShape2D_67mh8")

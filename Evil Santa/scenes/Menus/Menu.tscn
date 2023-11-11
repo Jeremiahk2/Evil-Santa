@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ojid14o35uey"]
+[gd_scene load_steps=3 format=3 uid="uid://ojid14o35uey"]
 
 [ext_resource type="Script" path="res://scenes/Menus/Menu.gd" id="1_lvqsg"]
+[ext_resource type="FontFile" uid="uid://bby4uwv8jqfme" path="res://Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="2_sjua4"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -27,15 +28,21 @@ scale = Vector2(2, 2)
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
+theme_override_fonts/font = ExtResource("2_sjua4")
+theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [node name="ControlsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sjua4")
+theme_override_font_sizes/font_size = 32
 text = "Controls"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_fonts/font = ExtResource("2_sjua4")
+theme_override_font_sizes/font_size = 32
 text = "Quit
 "
 
