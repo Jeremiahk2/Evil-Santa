@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxu5yqf5v6g6y"]
+[gd_scene load_steps=12 format=3 uid="uid://cxu5yqf5v6g6y"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jsl7q"]
 [ext_resource type="Texture2D" uid="uid://bfa4g042mcyvf" path="res://scenes/player/NewPlayerSpriteSheet.png" id="2_dtucr"]
 [ext_resource type="PackedScene" uid="uid://ybygshpmtr67" path="res://scenes/User Interface/HUD.tscn" id="3_y0kcx"]
 [ext_resource type="FontFile" uid="uid://bby4uwv8jqfme" path="res://Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_dh7hy"]
+[ext_resource type="PackedScene" uid="uid://cyq2h5rwh50hd" path="res://scenes/player/weapons/pistol.tscn" id="5_rm8nn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgwdi"]
 
@@ -125,6 +126,10 @@ theme_override_font_sizes/font_size = 64
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pistol" parent="." instance=ExtResource("5_rm8nn")]
+position = Vector2(126.667, 0)
+scale = Vector2(5, 5)
 
 [connection signal="area_entered" from="Interactions/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interactions/InteractionArea" to="." method="_on_interaction_area_area_exited"]

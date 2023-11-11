@@ -14,13 +14,19 @@ var health = 100
 
 @onready var animation = $AnimationPlayer
 
+var weapon = "pistol"
+
 var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
 
 @onready var attackTimer = $AttackTimer
 
+@onready var pistol = $pistol
+
 func _ready():
 	update_interactions()
 	update_credits()
+	pistol.visible = false
+	pistol.falseAvailable()
 
 func _physics_process(delta):
 	#if the player is moving then play the running animation
@@ -38,10 +44,20 @@ func _physics_process(delta):
 	#rotate the player to face the mouse
 	look_at(get_global_mouse_position())
 	
+	if weapon == "pistol":
+		pistol.visible = true
+		pistol.trueAvailable()
+	
+	#if weapon == "pistol":
+		#if PISTOL:
+			#var pistolGun = PISTOL.instantiate()
+			#get_tree().current_scene.add_child(pistolGun)
+			#pistolGun.global_position = $Marker2D.global_position
+	
 	#shoot when the player left-clicks and the weapon was not just shot (timer is currently .2s)
-	if Input.is_action_just_pressed("left_click") and attackTimer.is_stopped():
-		var bullet_direction = self.global_position.direction_to(get_global_mouse_position())
-		shoot_bullet(bullet_direction)
+	#if Input.is_action_just_pressed("left_click") and attackTimer.is_stopped():
+		#var bullet_direction = self.global_position.direction_to(get_global_mouse_position())
+		#shoot_bullet(bullet_direction)
 	
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -80,16 +96,16 @@ func incoming_damage(dmg):
 		get_tree().change_scene_to_file("res://scenes/Menus/DeathScreen.tscn")
 	
 	
-func shoot_bullet(bullet_direction: Vector2):
-	if BULLET:
-		var bullet = BULLET.instantiate()
-		get_tree().current_scene.add_child(bullet)
-		bullet.global_position = $Marker2D.global_position
+#func shoot_bullet(bullet_direction: Vector2):
+	#if BULLET:
+		#var bullet = BULLET.instantiate()
+		#get_tree().current_scene.add_child(bullet)
+		#bullet.global_position = $Marker2D.global_position
 		
-		var bullet_rotation = bullet_direction.angle()
-		bullet.rotation = bullet_rotation
+		#var bullet_rotation = bullet_direction.angle()
+		#bullet.rotation = bullet_rotation
 		
-		attackTimer.start()
+		#attackTimer.start()
 
 ############## Interaction  Methods #################
 
