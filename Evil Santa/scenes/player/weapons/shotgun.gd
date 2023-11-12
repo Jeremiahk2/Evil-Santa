@@ -48,21 +48,21 @@ func shoot_bullet(bullet_direction: Vector2):
 		var bullet2 = BULLET.instantiate()
 		get_tree().current_scene.add_child(bullet2)
 		bullet2.global_position = $Marker2D.global_position
-		bullet2.rotation = bullet_rotation - .2
+		bullet2.rotation = bullet_rotation - .25
 		
 		var bullet3 = BULLET.instantiate()
 		get_tree().current_scene.add_child(bullet3)
 		bullet3.global_position = $Marker2D.global_position
-		bullet3.rotation = bullet_rotation - .1
+		bullet3.rotation = bullet_rotation - .15
 		
 		var bullet4 = BULLET.instantiate()
 		get_tree().current_scene.add_child(bullet4)
 		bullet4.global_position = $Marker2D.global_position
-		bullet4.rotation = bullet_rotation + .1
+		bullet4.rotation = bullet_rotation + .15
 		
 		var bullet5 = BULLET.instantiate()
 		get_tree().current_scene.add_child(bullet5)
 		bullet5.global_position = $Marker2D.global_position
-		bullet5.rotation = bullet_rotation + .2
+		bullet5.rotation = bullet_rotation + .25
 		
 		attackTimer.start()
