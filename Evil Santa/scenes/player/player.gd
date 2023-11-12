@@ -15,7 +15,13 @@ var health = 100
 
 @onready var animation = $AnimationPlayer
 
-var weapon = "pistol"
+var weapon = "No weapon"
+
+var arr = ["No weapon", "No weapon", "No weapon"]
+
+var currNumberOfWeapons = 0
+
+var currWeapon = 0
 
 var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn')
 
@@ -27,6 +33,9 @@ var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn'
 
 @onready var shotgun = $shotgun
 
+
+
+
 func _ready():
 	update_interactions()
 	update_credits()
@@ -36,6 +45,7 @@ func _ready():
 	assaultRifle.falseAvailable()
 	shotgun.visible = false
 	shotgun.falseAvailable()
+	
 
 func _physics_process(delta):
 	#if the player is moving then play the running animation
@@ -53,13 +63,37 @@ func _physics_process(delta):
 	#rotate the player to face the mouse
 	look_at(get_global_mouse_position())
 	
+	if Input.is_action_just_pressed("press_1") && (currNumberOfWeapons >= 1):
+		currWeapon = 0
+		weapon = arr[currWeapon]
+		
+	elif Input.is_action_just_pressed("press_2") && (currNumberOfWeapons >= 2):
+		currWeapon = 1
+		weapon = arr[currWeapon]
+		
+	elif Input.is_action_just_pressed("press_3") && (currNumberOfWeapons >= 3):
+		currWeapon = 2
+		weapon = arr[currWeapon]
+	
 	if weapon == "pistol":
+		assaultRifle.visible = false
+		assaultRifle.falseAvailable()
+		shotgun.visible = false
+		shotgun.falseAvailable()
 		pistol.visible = true
 		pistol.trueAvailable()
 	elif weapon == "assaultRifle":
+		pistol.visible = false
+		pistol.falseAvailable()
+		shotgun.visible = false
+		shotgun.falseAvailable()
 		assaultRifle.visible = true
 		assaultRifle.trueAvailable()
 	elif weapon == "shotgun":
+		pistol.visible = false
+		pistol.falseAvailable()
+		assaultRifle.visible = false
+		assaultRifle.falseAvailable()
 		shotgun.visible = true
 		shotgun.trueAvailable()
 		
@@ -164,3 +198,24 @@ func update_credits():
 
 func increase_credits(numCredits):
 	Globals.credits += numCredits
+
+
+func _on_pistol_pickup_pistol_picked_up():
+	arr[currNumberOfWeapons] = "pistol"
+	currWeapon = currNumberOfWeapons
+	weapon = arr[currWeapon]
+	currNumberOfWeapons = currNumberOfWeapons + 1
+
+
+func _on_assault_rifle_pickup_assault_rifle_picked_up():
+	arr[currNumberOfWeapons] = "assaultRifle"
+	currWeapon = currNumberOfWeapons
+	weapon = arr[currWeapon]
+	currNumberOfWeapons = currNumberOfWeapons + 1
+
+
+func _on_shotgun_pickup_shotgun_picked_up():
+	arr[currNumberOfWeapons] = "shotgun"
+	currWeapon = currNumberOfWeapons
+	weapon = arr[currWeapon]
+	currNumberOfWeapons = currNumberOfWeapons + 1
