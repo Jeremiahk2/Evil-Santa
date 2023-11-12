@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxu5yqf5v6g6y"]
+[gd_scene load_steps=14 format=3 uid="uid://cxu5yqf5v6g6y"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jsl7q"]
 [ext_resource type="Texture2D" uid="uid://bfa4g042mcyvf" path="res://scenes/player/NewPlayerSpriteSheet.png" id="2_dtucr"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bby4uwv8jqfme" path="res://Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_dh7hy"]
 [ext_resource type="PackedScene" uid="uid://cyq2h5rwh50hd" path="res://scenes/player/weapons/pistol.tscn" id="5_rm8nn"]
 [ext_resource type="PackedScene" uid="uid://yf7fuolvxc4a" path="res://scenes/player/weapons/assaultRifle.tscn" id="6_eb6w4"]
+[ext_resource type="PackedScene" uid="uid://o2f2geu52gam" path="res://scenes/player/weapons/shotgun.tscn" id="7_shspv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgwdi"]
 
@@ -135,6 +136,9 @@ scale = Vector2(5, 5)
 [node name="assaultRifle" parent="." instance=ExtResource("6_eb6w4")]
 position = Vector2(140, 6.66667)
 scale = Vector2(4, 4)
+
+[node name="shotgun" parent="." instance=ExtResource("7_shspv")]
+position = Vector2(140, 0)
 
 [connection signal="area_entered" from="Interactions/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interactions/InteractionArea" to="." method="_on_interaction_area_area_exited"]

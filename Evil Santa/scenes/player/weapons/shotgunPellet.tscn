@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://orjg5rphap6h"]
+
+[ext_resource type="Script" path="res://scenes/player/weapons/shotgunPellet.gd" id="1_djxfn"]
+[ext_resource type="Texture2D" uid="uid://bku164cvtufxd" path="res://scenes/player/weapons/shotgunPellet.png" id="2_ocigm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xggvg"]
+size = Vector2(4, 4)
+
+[node name="shotgunPellet" type="Area2D"]
+collision_layer = 8
+collision_mask = 38
+script = ExtResource("1_djxfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ocigm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xggvg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
