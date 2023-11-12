@@ -1,5 +1,7 @@
 extends LevelParent 
 
+signal remove_wall
+
 var chest_opened = false
 
 func _on_player_enter_gate():
@@ -12,3 +14,9 @@ func _on_player_open_chest():
 		### get next weapon TODO ###
 		print("opened")
 		chest_opened = true
+
+
+
+func _on_boss_deer_boss_death():
+	
+	remove_wall.emit()

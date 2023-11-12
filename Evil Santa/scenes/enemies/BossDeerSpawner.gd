@@ -15,6 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	timer += delta
 	# Handle spawning
 	var Boss = get_tree().current_scene.get_node("Boss Deer")
@@ -32,3 +33,7 @@ func spawn():
 	temp.global_position = self.global_position
 	if small_timer_randomization == true:
 		actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)
+
+#when boss dies
+func _on_boss_deer_boss_death():
+	queue_free()
