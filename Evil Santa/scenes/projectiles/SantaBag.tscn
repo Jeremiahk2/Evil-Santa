@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca30db0lk3liv"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/SantaBag.gd" id="1_bftfq"]
+[ext_resource type="Texture2D" uid="uid://g51qo5qs77k8" path="res://Assets/ChristmasBag.png" id="2_8tewv"]
+
+[sub_resource type="Animation" id="Animation_lku3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_l1jq1"]
+resource_name = "poofAnim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2kadv"]
+_data = {
+"RESET": SubResource("Animation_lku3l"),
+"poofAnim": SubResource("Animation_l1jq1")
+}
+
+[node name="SantaBag" type="Node2D"]
+script = ExtResource("1_bftfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8tewv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+libraries = {
+"": SubResource("AnimationLibrary_2kadv")
+}

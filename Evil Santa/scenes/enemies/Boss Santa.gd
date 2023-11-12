@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var POOF: PackedScene = preload('res://scenes/projectiles/SantaBag.tscn')
+var ProjectilePath = preload('res://scenes/enemies/BossSantaCoal.tscn')
 var speed = 100
 var health = 750
 var player = null
@@ -29,6 +31,10 @@ func _physics_process(delta):
 		if player != null && attack_cooldown:
 			player.incoming_damage(15)
 			attack_cooldown = false
+			var poof = POOF.instantiate()
+			get_tree().current_scene.add_child(poof)
+			poof.global_position = $CoalMarker.global_position
+			
 			go = false
 			$PhysicalAttack.start()
 			
@@ -38,13 +44,11 @@ func _physics_process(delta):
 	if player_nearby:
 		look_at(Globals.player_pos)
 		if can_attack:
-			var attack = randi_range(0,2)
+			var attack = randi_range(0,1)
 			if attack == 0:
 				Attack_1()
 			if attack == 1:
 				Attack_2()
-			if attack == 2:
-				Attack_3()
 			
 			can_attack = false
 			$AttackTimer.start()
@@ -81,7 +85,19 @@ func Attack_1():
 		temp3.spawn()
 	
 func Attack_2():
-	pass
+
+	var projectile = ProjectilePath.instantiate()
+
+	
+	var vec = Vector2(position)
+	var ang = vec.angle_to_point(player.position)
+	projectile.velocity.y = sin(ang) * 200
+	projectile.velocity.x = cos(ang) * 200
+	var bullet_rotation = projectile.velocity.angle()
+	projectile.rotation = bullet_rotation
+	projectile.Hero = self.Hero
+	get_tree().current_scene.add_child(projectile)
+	projectile.global_position = $CoalMarker.global_position
 	
 	
 func Attack_3():

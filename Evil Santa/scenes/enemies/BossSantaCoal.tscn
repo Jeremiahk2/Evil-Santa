@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg642q5687kl7"]
+
+[ext_resource type="Script" path="res://scenes/enemies/BossSantaCoal.gd" id="1_sa7wk"]
+[ext_resource type="Texture2D" uid="uid://das8fauao4y1y" path="res://Assets/Coal.png" id="2_w2f2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bpw0"]
+size = Vector2(17, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jde58"]
+size = Vector2(20, 10)
+
+[node name="BossSantaCoal" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_sa7wk")
+
+[node name="alert" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
+scale = Vector2(1.4, 1.4)
+shape = SubResource("RectangleShape2D_5bpw0")
+
+[node name="Death" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w2f2p")
+offset = Vector2(-3, 0)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 37
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_jde58")
+
+[connection signal="area_entered" from="alert" to="." method="_on_alert_area_entered"]
+[connection signal="body_entered" from="alert" to="." method="_on_alert_body_entered"]
+[connection signal="body_exited" from="alert" to="." method="_on_alert_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
