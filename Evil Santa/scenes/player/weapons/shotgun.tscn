@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://o2f2geu52gam"]
+
+[ext_resource type="Texture2D" uid="uid://buya7o2vyulb2" path="res://scenes/player/weapons/shotgun.png" id="1_tjnjd"]
+[ext_resource type="Script" path="res://scenes/player/weapons/shotgun.gd" id="1_ymg7v"]
+
+[sub_resource type="Animation" id="Animation_lbj0n"]
+resource_name = "ready"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_m2p1c"]
+resource_name = "shoot"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 2, 3, 4, 5, 5]
+}
+
+[sub_resource type="Animation" id="Animation_syo6p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15o4b"]
+_data = {
+"RESET": SubResource("Animation_syo6p"),
+"ready": SubResource("Animation_lbj0n"),
+"shoot": SubResource("Animation_m2p1c")
+}
+
+[node name="shotgun" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_ymg7v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("1_tjnjd")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_15o4b")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(14, -1)
+
+[node name="attackTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

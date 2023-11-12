@@ -14,6 +14,7 @@ func _physics_process(_delta):
 	
 	
 	deal_with_damage()
+	
 	if go:
 
 		var vec = Vector2(position)
@@ -64,3 +65,6 @@ func incoming_damage(dmg):
 	print(health)
 	if health <= 0:
 		self.queue_free()
+		
+func enemy():
+	pass

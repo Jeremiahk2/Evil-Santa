@@ -6,5 +6,3 @@
 light_mask = 0
 visibility_layer = 0
 script = ExtResource("1_058am")
-small_timer_randomization = null
-spawn_interval = null

@@ -12,8 +12,8 @@ radius = 27.074
 
 [node name="BossDeerSnowball" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
-collision_layer = 8
-collision_mask = 9
+collision_layer = 0
+collision_mask = 45
 script = ExtResource("1_6fw87")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -27,8 +27,8 @@ shape = SubResource("CircleShape2D_1egn8")
 [node name="Death" type="Timer" parent="."]
 
 [node name="alert" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 9
+collision_layer = 0
+collision_mask = 37
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
 scale = Vector2(9, 9)

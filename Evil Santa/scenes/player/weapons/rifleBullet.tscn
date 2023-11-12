@@ -8,7 +8,7 @@ size = Vector2(8, 3)
 
 [node name="rifleBullet" type="Area2D"]
 collision_layer = 8
-collision_mask = 46
+collision_mask = 38
 script = ExtResource("1_ejagt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

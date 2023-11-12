@@ -89,3 +89,14 @@ func shoot():
 	projectile.Hero = self.Hero
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = self.global_position
+	
+func incoming_damage(dmg):
+	health = health - dmg
+	print("damage taken = ")
+	print(dmg)
+	print(health)
+	if health <= 0:
+		self.queue_free()
+		
+func enemy():
+	pass

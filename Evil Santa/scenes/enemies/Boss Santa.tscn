@@ -1,15 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvnaql65tx0ob"]
+[gd_scene load_steps=6 format=3 uid="uid://cvnaql65tx0ob"]
 
-[ext_resource type="Script" path="res://scenes/enemies/Boss Deer.gd" id="1_2nstk"]
+[ext_resource type="Script" path="res://scenes/enemies/Boss Santa.gd" id="1_6ugia"]
 [ext_resource type="Texture2D" uid="uid://de57yqaaavobl" path="res://Assets/Santa.png" id="2_w5h06"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nqfno"]
-radius = 127.969
+radius = 247.78
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mpgo"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbd6l"]
+radius = 722.069
+
 [node name="Boss Santa" type="CharacterBody2D"]
-script = ExtResource("1_2nstk")
+collision_layer = 2
+collision_mask = 45
+script = ExtResource("1_6ugia")
 
 [node name="AttackArea" type="Area2D" parent="."]
 
@@ -29,6 +34,18 @@ position = Vector2(-54.75, 0)
 scale = Vector2(40, 40)
 shape = SubResource("CircleShape2D_3mpgo")
 
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2(420, 0)
+shape = SubResource("CircleShape2D_qbd6l")
+
+[node name="PhysicalAttack" type="Timer" parent="."]
+wait_time = 4.0
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="timeout" from="PhysicalAttack" to="." method="_on_physical_attack_timeout"]

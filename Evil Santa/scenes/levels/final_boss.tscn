@@ -52,7 +52,7 @@ tile_set = ExtResource("2_hu7ot")
 format = 2
 layer_0/tile_data = PackedInt32Array(1769474, 458754, 5, 1835010, 458754, 6, 1835019, 524290, 6, 1835046, 524290, 6, 1769501, 458754, 5, 1835037, 458754, 6, 131101, 458754, 5, 196637, 458754, 6)
 
-[node name="BombSpawner" parent="." index="3" instance=ExtResource("3_v7js1")]
+[node name="BombSpawner1" parent="." index="3" instance=ExtResource("3_v7js1")]
 position = Vector2(150, 80)
 
 [node name="BombSpawner2" parent="." index="4" instance=ExtResource("3_v7js1")]
@@ -70,8 +70,6 @@ position = Vector2(550, 80)
 [node name="BombSpawner6" parent="." index="8" instance=ExtResource("3_v7js1")]
 position = Vector2(50, 80)
 
-[node name="BombSpawner7" parent="." index="9" instance=ExtResource("3_v7js1")]
-
-[node name="Boss Santa" parent="." index="10" instance=ExtResource("4_fymwx")]
+[node name="Boss Santa" parent="." index="9" instance=ExtResource("4_fymwx")]
 position = Vector2(535, 282)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)

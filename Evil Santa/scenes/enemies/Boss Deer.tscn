@@ -11,7 +11,11 @@ size = Vector2(1114, 414)
 
 [node name="Boss Deer" type="CharacterBody2D"]
 collision_layer = 2
+<<<<<<< HEAD
 collision_mask = 13
+=======
+collision_mask = 9
+>>>>>>> 258092eb8f4dbd8e98e92d010d65741a0f985575
 script = ExtResource("1_evr44")
 
 [node name="AttackArea" type="Area2D" parent="."]
@@ -38,10 +42,10 @@ scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_8alql")
 
 [node name="twinlaser2" type="Marker2D" parent="."]
-position = Vector2(700, 300)
+position = Vector2(719, 421)
 
 [node name="twinlaser1" type="Marker2D" parent="."]
-position = Vector2(700, -300)
+position = Vector2(703, -428)
 
 [node name="snowball" type="Marker2D" parent="."]
 position = Vector2(900, 0)

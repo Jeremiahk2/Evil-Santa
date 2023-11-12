@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var SPEED: int = 300
+@export var SPEED: int = 500
 
 var POOF: PackedScene = preload('res://scenes/projectiles/poofAnimation.tscn')
 
@@ -15,13 +15,11 @@ func destroy():
 	queue_free()
 
 
-func _on_area_entered(_area):
+func _on_area_entered(area):
 	destroy()
 
 
-func _on_body_entered(_body):
-	if _body.has_method("enemy"):
-		_body.incoming_damage(20)
+func _on_body_entered(body):
 	destroy()
 
 

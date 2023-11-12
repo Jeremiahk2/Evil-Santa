@@ -19,14 +19,17 @@ func _physics_process(delta):
 	
 
 
-
+func BossLaser():
+	pass
 
 func _on_hit_box_body_entered(body):
-	print("hit!")
 	if body.has_method("player"):
 		player_inattack_zone = true
 		Hero = body
 		deal_with_damage()
+		
+		
+	self.queue_free()
 		
 
 		
@@ -38,7 +41,6 @@ func _on_hit_box_body_exited(body):
 	
 func deal_with_damage():
 	if Hero != null:
-		print("element damage")
 		Hero.incoming_damage(15)
 		self.queue_free()
 		
@@ -59,11 +61,10 @@ func incoming_damage(dmg):
 func _on_alert_body_entered(body):
 	
 	if body.has_method("player"):
-		print("hit!")
 		player_inattack_zone = true
 		Hero = body
 		deal_with_damage()
-		
+	self.queue_free()
 
 
 

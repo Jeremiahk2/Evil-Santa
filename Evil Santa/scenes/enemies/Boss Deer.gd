@@ -99,9 +99,19 @@ func _on_attack_area_body_entered(body):
 		player = Hero
 
 
-func _on_attack_area_body_exited(body):
-	player_nearby = false
 
 
 func _on_attack_timer_timeout():
 	can_attack = true
+	
+
+func incoming_damage(dmg):
+	health = health - dmg
+	print("damage taken = ")
+	print(dmg)
+	print(health)
+	if health <= 0:
+		self.queue_free()
+		
+func enemy():
+	pass

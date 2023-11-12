@@ -15,7 +15,7 @@ var health = 100
 
 @onready var animation = $AnimationPlayer
 
-var weapon = "assaultRifle"
+var weapon = "pistol"
 
 var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn')
 
@@ -25,6 +25,8 @@ var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn'
 
 @onready var assaultRifle = $assaultRifle
 
+@onready var shotgun = $shotgun
+
 func _ready():
 	update_interactions()
 	update_credits()
@@ -32,6 +34,8 @@ func _ready():
 	pistol.falseAvailable()
 	assaultRifle.visible = false
 	assaultRifle.falseAvailable()
+	shotgun.visible = false
+	shotgun.falseAvailable()
 
 func _physics_process(delta):
 	#if the player is moving then play the running animation
@@ -55,6 +59,10 @@ func _physics_process(delta):
 	elif weapon == "assaultRifle":
 		assaultRifle.visible = true
 		assaultRifle.trueAvailable()
+	elif weapon == "shotgun":
+		shotgun.visible = true
+		shotgun.trueAvailable()
+		
 	
 	#if weapon == "pistol":
 		#if PISTOL:
