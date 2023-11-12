@@ -38,6 +38,7 @@ func spawn():
 	if small_timer_randomization == true:
 		actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 #when boss dies
 func _on_boss_deer_boss_death():
@@ -49,5 +50,7 @@ func _on_boss_deer_boss_death():
 			actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)
 		child_alive = true
 >>>>>>> 258092eb8f4dbd8e98e92d010d65741a0f985575
+=======
+>>>>>>> parent of 49e5255 (added cutscene.)
 =======
 >>>>>>> parent of 49e5255 (added cutscene.)
