@@ -15,7 +15,7 @@ var health = 100
 
 @onready var animation = $AnimationPlayer
 
-var weapon = "shotgun"
+var weapon = "pistol"
 
 var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn')
 

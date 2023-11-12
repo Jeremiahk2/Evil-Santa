@@ -30,10 +30,10 @@ scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_8alql")
 
 [node name="twinlaser2" type="Marker2D" parent="."]
-position = Vector2(700, 300)
+position = Vector2(719, 421)
 
 [node name="twinlaser1" type="Marker2D" parent="."]
-position = Vector2(700, -300)
+position = Vector2(703, -428)
 
 [node name="snowball" type="Marker2D" parent="."]
 position = Vector2(900, 0)

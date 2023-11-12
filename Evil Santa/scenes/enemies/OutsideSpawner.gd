@@ -1,7 +1,7 @@
 extends Marker2D
 
 
-var BombPath = preload('res://scenes/enemies/Bomb.tscn')
+var ElfPath = preload('res://scenes/enemies/Elf.tscn')
 
 @export var small_timer_randomization: bool = false
 
@@ -24,7 +24,7 @@ func _process(delta):
 
 func spawn():
 	timer = 0
-	var temp = BombPath.instantiate()
+	var temp = ElfPath.instantiate()
 	# The randomization at the end is so that way the collisions don't go fucky wucky
 
 	get_tree().current_scene.add_child(temp)

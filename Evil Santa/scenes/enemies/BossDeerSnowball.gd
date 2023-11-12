@@ -29,7 +29,9 @@ func _on_hit_box_body_entered(body):
 		player_inattack_zone = true
 		Hero = body
 		deal_with_damage()
-		
+	
+	if !body.has_method("BossLaser"):
+		self.queue_free()
 
 
 func _on_hit_box_body_exited(body):

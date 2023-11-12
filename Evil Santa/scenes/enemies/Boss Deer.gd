@@ -96,8 +96,6 @@ func _on_attack_area_body_entered(body):
 		player = Hero
 
 
-func _on_attack_area_body_exited(body):
-	player_nearby = false
 
 
 func _on_attack_timer_timeout():

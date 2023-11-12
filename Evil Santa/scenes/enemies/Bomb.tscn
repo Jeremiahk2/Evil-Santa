@@ -8,9 +8,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3uwbh"]
 
 [node name="Bomb" type="CharacterBody2D"]
+collision_layer = 8
 script = ExtResource("1_k4tnt")
 
 [node name="Explosion" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]
 scale = Vector2(3, 3)
@@ -26,7 +28,7 @@ texture = ExtResource("2_o64wu")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 show_behind_parent = true
-color = Color(1, 0, 0, 0.596078)
+color = Color(1, 0, 0, 0.407843)
 polygon = PackedVector2Array(-15, -26, -8, -29, 0, -30, 8, -29, 15, -26, 21, -21, 26, -15, 29, -8, 30, 0, 29, 8, 26, 15, 21, 21, 15, 26, 8, 29, 0, 30, -8, 29, -15, 26, -21, 21, -26, 15, -29, 8, -30, 0, -29, -8, -26, -15, -21, -21)
 
 [connection signal="body_entered" from="Explosion" to="." method="_on_explosion_body_entered"]
