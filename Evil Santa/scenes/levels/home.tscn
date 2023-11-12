@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://nvoyhwnnctoh"]
+
+[ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_mcnq7"]
+
+[node name="Home" instance=ExtResource("1_mcnq7")]
+position = Vector2(0, 0)
+
+[node name="TileMap" type="TileMap" parent="BackGround" index="0"]
+format = 2
+layer_0/tile_data = PackedInt32Array(7, 131076, 0, 8, 131076, 0, 9, 131076, 0, 10, 131076, 0)
+
+[node name="Player" parent="." index="1"]
+position = Vector2(386, 205)

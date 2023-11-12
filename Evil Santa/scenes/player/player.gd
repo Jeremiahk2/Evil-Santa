@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var all_interactions = []
 @onready var interactLabel = $"HUD/InteractionLabel"
 signal enter_gate
+signal open_chest
 
 @export var MAX_SPEED = 200
 @export var ACCELERATION = 1500
@@ -145,6 +146,10 @@ func execute_interaction():
 			"gate":
 				print(cur_interaction.interact_value)
 				enter_gate.emit() 
+			"chest":
+				print(cur_interaction.interact_value)
+				open_chest.emit()
+				### TODO ###
 #credits
 func update_credits():
 	creditsLabel.text = "Credits: " + str(Globals.credits)
