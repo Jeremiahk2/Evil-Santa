@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal boss_death
 
 var ProjectilePath = preload('res://scenes/enemies/BossDeerTwinLaser.tscn')
 var ProjectilePath2 = preload('res://scenes/enemies/BossDeerSnowBall.tscn')
@@ -35,7 +36,6 @@ func _physics_process(delta):
 	if !init_timer:
 		$AttackTimer.start()
 		init_timer = true
-	
 	
 	
 	
@@ -108,6 +108,8 @@ func incoming_damage(dmg):
 	print(dmg)
 	print(health)
 	if health <= 0:
+		print("dead")
+		boss_death.emit()
 		self.queue_free()
 		
 func enemy():

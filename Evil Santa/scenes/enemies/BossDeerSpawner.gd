@@ -32,25 +32,14 @@ func spawn():
 		temp = DeerPath.instantiate()
 	# The randomization at the end is so that way the collisions don't go fucky wucky
 
-<<<<<<< HEAD
-	get_tree().current_scene.add_child(temp)
-	temp.global_position = self.global_position
-	if small_timer_randomization == true:
-		actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-#when boss dies
-func _on_boss_deer_boss_death():
-	queue_free()
-=======
 		get_tree().current_scene.add_child(temp)
 		temp.global_position = self.global_position
 		if small_timer_randomization == true:
 			actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)
 		child_alive = true
->>>>>>> 258092eb8f4dbd8e98e92d010d65741a0f985575
-=======
->>>>>>> parent of 49e5255 (added cutscene.)
-=======
->>>>>>> parent of 49e5255 (added cutscene.)
+
+
+#when boss dies
+func _on_boss_deer_boss_death():
+	queue_free()
+

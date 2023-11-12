@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://buavqwdaxn0ya"]
+[gd_scene load_steps=8 format=3 uid="uid://buavqwdaxn0ya"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_eg6hv"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_rf4s1"]
 [ext_resource type="TileSet" uid="uid://bcytheu7fghtt" path="res://scenes/levels/inside.tres" id="3_ai3ko"]
 [ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="4_80754"]
+[ext_resource type="Script" path="res://scenes/levels/Chest.gd" id="5_0adqd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltgs4"]
-size = Vector2(28, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_diwuu"]
+size = Vector2(30, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whgss"]
 size = Vector2(16, 16)
@@ -76,8 +77,9 @@ interact_label = "[e] to open chest"
 interact_type = "chest"
 interact_value = "getting next weapon"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NextWeapon" index="0"]
-shape = SubResource("RectangleShape2D_ltgs4")
+[node name="Chest" type="CollisionShape2D" parent="NextWeapon" index="0"]
+shape = SubResource("RectangleShape2D_diwuu")
+script = ExtResource("5_0adqd")
 
 [node name="DoorToFinalBoss" parent="." index="4" instance=ExtResource("4_80754")]
 position = Vector2(1064, 56)
@@ -90,3 +92,4 @@ shape = SubResource("RectangleShape2D_whgss")
 
 [connection signal="enter_gate" from="Player" to="." method="_on_player_enter_gate"]
 [connection signal="open_chest" from="Player" to="." method="_on_player_open_chest"]
+[connection signal="open_chest" from="Player" to="NextWeapon/Chest" method="_on_player_open_chest"]

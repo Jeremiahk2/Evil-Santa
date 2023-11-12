@@ -10,18 +10,8 @@ radius = 127.969
 size = Vector2(1114, 414)
 
 [node name="Boss Deer" type="CharacterBody2D"]
-<<<<<<< HEAD
-<<<<<<< HEAD
 collision_layer = 2
-<<<<<<< HEAD
 collision_mask = 13
-
-collision_mask = 9
->>>>>>> 258092eb8f4dbd8e98e92d010d65741a0f985575
-=======
->>>>>>> parent of 49e5255 (added cutscene.)
-=======
->>>>>>> parent of 49e5255 (added cutscene.)
 script = ExtResource("1_evr44")
 
 [node name="AttackArea" type="Area2D" parent="."]
