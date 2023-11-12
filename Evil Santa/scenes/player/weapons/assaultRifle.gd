@@ -1,6 +1,6 @@
 extends Node2D
 
-var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
+var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn')
 
 @onready var attackTimer = $attackTimer
 
@@ -29,7 +29,6 @@ func _process(_delta):
 			shotsFired = 0
 			reloading = false
 		elif Input.is_action_pressed("left_click") and attackTimer.is_stopped() and !reloading:
-			print("here1")
 			shooting = true
 			var bullet_direction = self.global_position.direction_to(get_global_mouse_position())
 			animation.play("shoot")
@@ -40,7 +39,6 @@ func _process(_delta):
 			shooting = false
 		else:
 			if !shooting && !reloading:
-				print(attackTimer.is_stopped())
 				animation.play("ready")
 				
 func trueAvailable():

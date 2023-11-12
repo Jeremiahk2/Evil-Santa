@@ -1,6 +1,6 @@
 extends Node2D
 
-var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
+var BULLET: PackedScene = preload('res://scenes/player/weapons/playerBullet.tscn')
 
 @onready var attackTimer = $attackTimer
 

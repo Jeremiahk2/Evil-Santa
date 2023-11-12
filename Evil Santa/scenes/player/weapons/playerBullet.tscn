@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckna26535hbgo"]
 
-[ext_resource type="Script" path="res://scenes/player/playerBullet.gd" id="1_0le0p"]
-[ext_resource type="Texture2D" uid="uid://o5x24ko07ebq" path="res://scenes/player/PlayerBullet1.png" id="2_4yq0g"]
+[ext_resource type="Script" path="res://scenes/player/weapons/playerBullet.gd" id="1_8tyj4"]
+[ext_resource type="Texture2D" uid="uid://o5x24ko07ebq" path="res://scenes/player/weapons/PlayerBullet1.png" id="2_bbhpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tc0x2"]
 size = Vector2(17, 10)
@@ -10,10 +10,10 @@ size = Vector2(17, 10)
 scale = Vector2(0.6, 0.6)
 collision_layer = 8
 collision_mask = 46
-script = ExtResource("1_0le0p")
+script = ExtResource("1_8tyj4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4yq0g")
+texture = ExtResource("2_bbhpg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 0)

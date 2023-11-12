@@ -17,7 +17,7 @@ var health = 100
 
 var weapon = "assaultRifle"
 
-var BULLET: PackedScene = preload('res://scenes/player/playerBullet.tscn')
+var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn')
 
 @onready var attackTimer = $AttackTimer
 

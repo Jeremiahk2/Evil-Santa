@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm3wnw6k3102x"]
+
+[ext_resource type="Script" path="res://scenes/player/weapons/rifleBullet.gd" id="1_ejagt"]
+[ext_resource type="Texture2D" uid="uid://ljaircmcldq8" path="res://scenes/player/weapons/RifleBullet.png" id="2_c1ndv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yn0u"]
+size = Vector2(8, 3)
+
+[node name="rifleBullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 46
+script = ExtResource("1_ejagt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_c1ndv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3yn0u")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
