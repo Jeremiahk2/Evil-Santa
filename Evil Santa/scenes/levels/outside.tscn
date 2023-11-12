@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt8rlqurqk3kh"]
+[gd_scene load_steps=11 format=3 uid="uid://dt8rlqurqk3kh"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_of05t"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_m8quq"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ct4l1y3uor4ns" path="res://scenes/projectiles/poofAnimation.tscn" id="7_tdvgu"]
 [ext_resource type="PackedScene" uid="uid://c85prybfhfmcf" path="res://scenes/levels/gate.tscn" id="8_7rrkf"]
 [ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="8_dffyh"]
+[ext_resource type="PackedScene" uid="uid://ynl1e4bgm8p6" path="res://scenes/enemies/OutsideSpawner.tscn" id="9_1v62f"]
 [ext_resource type="PackedScene" uid="uid://c5nexqx88icl1" path="res://scenes/enemies/Elf.tscn" id="9_e1x8u"]
+[ext_resource type="PackedScene" uid="uid://dpnytpqi8ajkb" path="res://scenes/enemies/Elemental.tscn" id="10_4x2uf"]
 [ext_resource type="PackedScene" uid="uid://cbws2mtjd4g0b" path="res://scenes/enemies/deer.tscn" id="10_l6l7j"]
 
 [node name="Outside" instance=ExtResource("1_of05t")]
@@ -77,5 +79,12 @@ layer_0/tile_data = PackedInt32Array(-589804, 1572868, 15, -524268, 1572868, 16,
 
 [node name="poofAnimation" parent="." index="8" instance=ExtResource("7_tdvgu")]
 position = Vector2(-178, -34)
+
+[node name="Node" type="Node" parent="." index="9"]
+
+[node name="OutsideSpawner" parent="." index="10" instance=ExtResource("9_1v62f")]
+position = Vector2(-7, 602)
+
+[node name="Elemental" parent="." index="11" instance=ExtResource("10_4x2uf")]
 
 [connection signal="enter_gate" from="Player" to="." method="_on_player_enter_gate"]

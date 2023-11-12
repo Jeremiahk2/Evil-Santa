@@ -11,7 +11,7 @@
 
 [node name="Elemental" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 15
+collision_mask = 13
 script = ExtResource("1_b4up4")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -25,7 +25,6 @@ shape = SubResource("CircleShape2D_v171n")
 
 [node name="range" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
 scale = Vector2(10, 10)
@@ -44,3 +43,4 @@ texture = ExtResource("2_hjd2s")
 [connection signal="body_exited" from="alert" to="." method="_on_alert_body_exited"]
 [connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

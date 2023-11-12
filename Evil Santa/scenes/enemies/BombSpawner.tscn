@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://17qqgwgrkudq"]
+
+[ext_resource type="Script" path="res://scenes/enemies/OutsideSpawner.gd" id="1_i4g5s"]
+
+[node name="BombSpawner" type="Marker2D"]
+light_mask = 0
+visibility_layer = 0
+script = ExtResource("1_i4g5s")

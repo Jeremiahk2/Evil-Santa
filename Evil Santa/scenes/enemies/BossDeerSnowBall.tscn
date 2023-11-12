@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dihd58gt5kj0"]
+
+[ext_resource type="Script" path="res://scenes/enemies/BossDeerSnowball.gd" id="1_6fw87"]
+[ext_resource type="Texture2D" uid="uid://c8t0f0upwqmu1" path="res://Assets/snowball.png" id="2_a8evm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1egn8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qit2b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7peh"]
+radius = 27.074
+
+[node name="BossDeerSnowball" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_6fw87")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_1egn8")
+
+[node name="Death" type="Timer" parent="."]
+
+[node name="alert" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
+scale = Vector2(9, 9)
+shape = SubResource("CircleShape2D_qit2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("2_a8evm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_i7peh")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="timeout" from="Death" to="." method="_on_spawn_time_timeout"]

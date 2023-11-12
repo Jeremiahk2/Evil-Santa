@@ -78,13 +78,14 @@ func _on_range_body_exited(body):
 func shoot():
 	print("shoot")
 	var projectile = ProjectilePath.instantiate()
-	projectile.global_position = self.global_position
+
 	
 	var vec = Vector2(position)
 	var ang = vec.angle_to_point(player.position)
 	projectile.velocity.y = sin(ang) * speed
 	projectile.velocity.x = cos(ang) * speed
-	
+	var bullet_rotation = projectile.velocity.angle()
+	projectile.rotation = bullet_rotation
 	projectile.Hero = self.Hero
-	
-	add_sibling(projectile)
+	get_tree().current_scene.add_child(projectile)
+	projectile.global_position = self.global_position

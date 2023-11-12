@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b737rj5fasy6"]
+
+[ext_resource type="Script" path="res://scenes/enemies/BossDeerSpawner.gd" id="1_uyx6y"]
+
+[node name="BossDeerSpawner" type="Marker2D"]
+light_mask = 0
+visibility_layer = 0
+script = ExtResource("1_uyx6y")

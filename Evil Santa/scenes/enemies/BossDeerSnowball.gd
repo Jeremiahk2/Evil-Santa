@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
+var speed = 10
 
 
-var speed = 200
 var health = 50
 var player = null
 var Hero = null
@@ -72,5 +72,4 @@ func _on_alert_body_exited(body):
 
 func _on_death_timeout():
 	self.queue_free()
-
 

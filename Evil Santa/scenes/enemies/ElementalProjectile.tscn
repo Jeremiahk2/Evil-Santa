@@ -6,25 +6,34 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bpw0"]
 size = Vector2(17, 7)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x6mdb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jde58"]
+size = Vector2(20, 10)
 
 [node name="ElementalProjectile" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 47
 script = ExtResource("1_kgvon")
 
 [node name="alert" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
+scale = Vector2(1.4, 1.4)
 shape = SubResource("RectangleShape2D_5bpw0")
 
 [node name="Death" type="Timer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_x6mdb")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_l4o4g")
 offset = Vector2(-3, 0)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_jde58")
+
+[connection signal="area_entered" from="alert" to="." method="_on_alert_area_entered"]
+[connection signal="body_entered" from="alert" to="." method="_on_alert_body_entered"]
+[connection signal="body_exited" from="alert" to="." method="_on_alert_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]

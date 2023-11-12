@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ynl1e4bgm8p6"]
+
+[ext_resource type="Script" path="res://scenes/enemies/OutsideSpawner.gd" id="1_058am"]
+
+[node name="OutsideSpawner" type="Marker2D"]
+light_mask = 0
+visibility_layer = 0
+script = ExtResource("1_058am")
+small_timer_randomization = null
+spawn_interval = null

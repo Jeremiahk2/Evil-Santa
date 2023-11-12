@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-
-
 var speed = 200
 var health = 50
 var player = null
@@ -29,6 +27,8 @@ func _on_hit_box_body_entered(body):
 		player_inattack_zone = true
 		Hero = body
 		deal_with_damage()
+		
+
 		
 
 
@@ -63,6 +63,8 @@ func _on_alert_body_entered(body):
 		player_inattack_zone = true
 		Hero = body
 		deal_with_damage()
+		
+
 
 
 func _on_alert_body_exited(body):
@@ -72,5 +74,6 @@ func _on_alert_body_exited(body):
 
 func _on_death_timeout():
 	self.queue_free()
+
 
 

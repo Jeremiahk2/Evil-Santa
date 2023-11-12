@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxjp0brj4eskj"]
+
+[ext_resource type="Script" path="res://scenes/enemies/BossDeerTwinLaser.gd" id="1_6y6f2"]
+[ext_resource type="Texture2D" uid="uid://crg3k3udm2pr5" path="res://Assets/ElementalProjectile.png" id="2_8fltp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vaov"]
+size = Vector2(20, 4.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckkyo"]
+size = Vector2(215, 56)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7peh"]
+radius = 27.074
+
+[node name="BossDeerTwinLaser" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 8
+script = ExtResource("1_6y6f2")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 41
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_6vaov")
+
+[node name="Death" type="Timer" parent="."]
+
+[node name="alert" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 41
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alert"]
+shape = SubResource("RectangleShape2D_ckkyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-45, 0)
+scale = Vector2(12, 7.40625)
+texture = ExtResource("2_8fltp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i7peh")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_shape_entered" from="HitBox" to="." method="_on_hit_box_area_shape_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="body_shape_entered" from="HitBox" to="." method="_on_hit_box_body_shape_entered"]
+[connection signal="timeout" from="Death" to="." method="_on_spawn_time_timeout"]
