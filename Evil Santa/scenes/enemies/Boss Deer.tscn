@@ -13,7 +13,7 @@ size = Vector2(1114, 414)
 collision_layer = 2
 <<<<<<< HEAD
 collision_mask = 13
-=======
+
 collision_mask = 9
 >>>>>>> 258092eb8f4dbd8e98e92d010d65741a0f985575
 script = ExtResource("1_evr44")
