@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 100
-var health = 20
+var health = 750
 var player = null
 var Hero = null
 var go = false
@@ -69,7 +69,7 @@ func Attack_1():
 	temp.spawn()
 	temp2.spawn()
 	
-	if health < 50:
+	if health < 200:
 		var attack3 = randi_range(1,6)
 
 		var strAttack3 = str(attack3)
@@ -120,3 +120,14 @@ func _on_range_body_exited(body):
 func _on_physical_attack_timeout():
 	attack_cooldown = true
 	go = true
+	
+func incoming_damage(dmg):
+	health = health - dmg
+	print("damage taken = ")
+	print(dmg)
+	print(health)
+	if health <= 0:
+		self.queue_free()
+		
+func enemy():
+	pass

@@ -100,3 +100,15 @@ func _on_attack_area_body_entered(body):
 
 func _on_attack_timer_timeout():
 	can_attack = true
+	
+
+func incoming_damage(dmg):
+	health = health - dmg
+	print("damage taken = ")
+	print(dmg)
+	print(health)
+	if health <= 0:
+		self.queue_free()
+		
+func enemy():
+	pass

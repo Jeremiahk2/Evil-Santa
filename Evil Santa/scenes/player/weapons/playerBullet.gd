@@ -20,6 +20,8 @@ func _on_area_entered(_area):
 
 
 func _on_body_entered(_body):
+	if _body.has_method("enemy"):
+		_body.incoming_damage(20)
 	destroy()
 
 

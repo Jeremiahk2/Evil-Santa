@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var health = 50
 var player_nearby: bool = false
 var can_laser: bool = true
 
@@ -26,3 +27,14 @@ func _on_attack_area_body_exited(_body):
 
 func _on_nose_laser_cooldown_timeout():
 	can_laser = true
+	
+func incoming_damage(dmg):
+	health = health - dmg
+	print("damage taken = ")
+	print(dmg)
+	print(health)
+	if health <= 0:
+		self.queue_free()
+		
+func enemy():
+	pass

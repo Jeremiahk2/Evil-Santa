@@ -19,18 +19,21 @@ func _process(delta):
 	timer += delta
 	# Handle spawning
 	var Boss = get_tree().current_scene.get_node("Boss Deer")
-	if timer >= actual_spawn_interval - 1 && Boss.attack3 && !is_instance_valid(temp):
+	if is_instance_valid(Boss) && timer >= actual_spawn_interval - 1 && Boss.attack3 && !is_instance_valid(temp):
 		
 		Boss.attack3 = false
 		spawn()
 
 func spawn():
-	timer = 0
-	temp = DeerPath.instantiate()
+	var Boss = get_tree().current_scene.get_node("Boss Deer")
+	
+	if is_instance_valid(Boss):
+		timer = 0
+		temp = DeerPath.instantiate()
 	# The randomization at the end is so that way the collisions don't go fucky wucky
 
-	get_tree().current_scene.add_child(temp)
-	temp.global_position = self.global_position
-	if small_timer_randomization == true:
-		actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)
-	child_alive = true
+		get_tree().current_scene.add_child(temp)
+		temp.global_position = self.global_position
+		if small_timer_randomization == true:
+			actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)
+		child_alive = true

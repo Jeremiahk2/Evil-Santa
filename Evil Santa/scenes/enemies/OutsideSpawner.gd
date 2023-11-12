@@ -17,9 +17,9 @@ func _ready():
 func _process(delta):
 	timer += delta
 	# Handle spawning
-	print("spawning?")
+
 	if timer >= actual_spawn_interval - 1:
-		print("spawn!")
+
 		spawn()
 
 func spawn():
