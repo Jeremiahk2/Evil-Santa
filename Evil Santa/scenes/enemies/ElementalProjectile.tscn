@@ -11,7 +11,6 @@ size = Vector2(20, 10)
 
 [node name="ElementalProjectile" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 47
 script = ExtResource("1_kgvon")
 
 [node name="alert" type="Area2D" parent="."]
@@ -29,7 +28,6 @@ offset = Vector2(-3, 0)
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 47
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_jde58")

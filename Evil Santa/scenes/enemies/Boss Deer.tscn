@@ -10,16 +10,21 @@ radius = 127.969
 size = Vector2(1114, 414)
 
 [node name="Boss Deer" type="CharacterBody2D"]
+<<<<<<< HEAD
+<<<<<<< HEAD
 collision_layer = 2
 <<<<<<< HEAD
 collision_mask = 13
 
 collision_mask = 9
 >>>>>>> 258092eb8f4dbd8e98e92d010d65741a0f985575
+=======
+>>>>>>> parent of 49e5255 (added cutscene.)
+=======
+>>>>>>> parent of 49e5255 (added cutscene.)
 script = ExtResource("1_evr44")
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 scale = Vector2(30, 30)
@@ -31,11 +36,6 @@ wait_time = 1.7
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
 texture = ExtResource("2_1v8b8")
-
-[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="."]
-position = Vector2(-27, 1)
-scale = Vector2(16, 16)
-polygon = PackedVector2Array(-34.5, 0, -32.5, -6, -30.5, -8, -25.5, -10, -21.5, -10, -16.5, -8, -6.5, -8, -1.5, -11, 5.5, -6, 11.5, -5, 19.5, -5, 22.5, -11, 24.5, -15, 28.5, -17, 35.5, -14, 35.5, -10, 29.5, -4, 29.5, 3, 36.5, 8, 36.5, 15, 31.5, 16, 26.5, 15, 22.5, 9, 18.5, 6, 6.5, 6, 2.5, 9, -2.5, 10, -8.5, 9, -15.5, 9, -21.5, 11, -27.5, 10, -31.5, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.9, 0.9)
