@@ -22,7 +22,9 @@ func _on_area_entered(area):
 	destroy()
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
+	if _body.has_method("enemy"):
+		_body.incoming_damage(7)
 	destroy()
 
 
