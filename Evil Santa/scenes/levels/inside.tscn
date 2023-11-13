@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://buavqwdaxn0ya"]
+[gd_scene load_steps=9 format=3 uid="uid://buavqwdaxn0ya"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_eg6hv"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_rf4s1"]
 [ext_resource type="TileSet" uid="uid://bcytheu7fghtt" path="res://scenes/levels/inside.tres" id="3_ai3ko"]
 [ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="4_80754"]
 [ext_resource type="Script" path="res://scenes/levels/Chest.gd" id="5_0adqd"]
+[ext_resource type="PackedScene" uid="uid://bi2svbtwc7mw1" path="res://scenes/player/weaponPickups/shotgunPickup.tscn" id="6_gul1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_diwuu"]
 size = Vector2(30, 32)
@@ -89,6 +90,9 @@ interact_value = "going to next boss"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToFinalBoss" index="0"]
 shape = SubResource("RectangleShape2D_whgss")
+
+[node name="shotgunPickup" parent="." index="5" instance=ExtResource("6_gul1p")]
+position = Vector2(98, 289)
 
 [connection signal="enter_gate" from="Player" to="." method="_on_player_enter_gate"]
 [connection signal="open_chest" from="Player" to="." method="_on_player_open_chest"]

@@ -200,6 +200,9 @@ func execute_interaction():
 				print(cur_interaction.interact_value)
 				open_chest.emit()
 				### TODO ###
+			"weapon":
+				print(cur_interaction.interact_value)
+				## TODO
 #credits
 func update_credits():
 	creditsLabel.text = "Credits: " + str(Globals.credits)

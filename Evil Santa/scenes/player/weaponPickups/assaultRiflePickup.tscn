@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://3kmb1x6ul861"]
+[gd_scene load_steps=9 format=3 uid="uid://3kmb1x6ul861"]
 
 [ext_resource type="Script" path="res://scenes/player/weaponPickups/assaultRiflePickup.gd" id="1_cnl1m"]
 [ext_resource type="Texture2D" uid="uid://bktefc8u7823d" path="res://scenes/player/weaponPickups/AssaultRiflePickup.png" id="2_8pnss"]
+[ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="3_2tpja"]
 
 [sub_resource type="Animation" id="Animation_ln2ux"]
 length = 0.001
@@ -44,6 +45,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1055"]
 size = Vector2(24, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_177vt"]
+size = Vector2(24, 21)
+
 [node name="assaultRiflePickup" type="Area2D"]
 script = ExtResource("1_cnl1m")
 
@@ -60,5 +64,13 @@ libraries = {
 position = Vector2(-2, -0.5)
 shape = SubResource("RectangleShape2D_m1055")
 
+[node name="InteractionArea" parent="." instance=ExtResource("3_2tpja")]
+interact_label = "[e] ASSAULT RIFLE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_177vt")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

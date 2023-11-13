@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://pdybk1uk28u5"]
+[gd_scene load_steps=9 format=3 uid="uid://pdybk1uk28u5"]
 
 [ext_resource type="Script" path="res://scenes/player/weaponPickups/pistolPickup.gd" id="1_mnjv5"]
 [ext_resource type="Texture2D" uid="uid://drpbbodxasicj" path="res://scenes/player/weaponPickups/pistolPickup.png" id="2_5b07f"]
+[ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="3_3eihh"]
 
 [sub_resource type="Animation" id="Animation_pcko2"]
 length = 0.001
@@ -44,6 +45,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krn6x"]
 size = Vector2(20, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp8mb"]
+size = Vector2(20, 16)
+
 [node name="pistolPickup" type="Area2D"]
 collision_layer = 0
 collision_mask = 1024
@@ -62,5 +66,13 @@ libraries = {
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_krn6x")
 
+[node name="InteractionArea" parent="." instance=ExtResource("3_3eihh")]
+interact_label = "[e] PISTOL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_dp8mb")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
