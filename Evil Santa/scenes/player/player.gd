@@ -47,7 +47,6 @@ func _ready():
 
 func _physics_process(delta):
 	#if the player is moving then play the running animation
-	print(currNumberOfWeapons)
 	if velocity.length() > 0:
 		animation.play("Run")
 	else:
