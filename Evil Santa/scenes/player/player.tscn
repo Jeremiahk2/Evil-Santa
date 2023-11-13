@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bby4uwv8jqfme" path="res://Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_dh7hy"]
 [ext_resource type="PackedScene" uid="uid://cyq2h5rwh50hd" path="res://scenes/player/weapons/pistol.tscn" id="5_rm8nn"]
 [ext_resource type="PackedScene" uid="uid://yf7fuolvxc4a" path="res://scenes/player/weapons/assaultRifle.tscn" id="6_eb6w4"]
-[ext_resource type="PackedScene" path="res://scenes/player/weapons/shotgun.tscn" id="7_h2h0i"]
+[ext_resource type="PackedScene" uid="uid://o2f2geu52gam" path="res://scenes/player/weapons/shotgun.tscn" id="7_h2h0i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgwdi"]
 
