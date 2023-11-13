@@ -92,8 +92,11 @@ interact_value = "going to next boss"
 shape = SubResource("RectangleShape2D_whgss")
 
 [node name="shotgunPickup" parent="." index="5" instance=ExtResource("6_gul1p")]
-position = Vector2(98, 289)
+position = Vector2(269, 327)
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="enter_gate" from="Player" to="." method="_on_player_enter_gate"]
 [connection signal="open_chest" from="Player" to="." method="_on_player_open_chest"]
 [connection signal="open_chest" from="Player" to="NextWeapon/Chest" method="_on_player_open_chest"]
+[connection signal="chestOpened" from="NextWeapon/Chest" to="." method="_on_chest_chest_opened"]
+[connection signal="shotgunPickedUp" from="shotgunPickup" to="Player" method="_on_shotgun_pickup_shotgun_picked_up"]
