@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b8vdko0gpa2v1" path="res://Assets/Elemental.png" id="2_hjd2s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v171n"]
+radius = 12.7004
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dbpbi"]
+radius = 3.30151
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vbbx"]
 

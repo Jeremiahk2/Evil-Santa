@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dt8rlqurqk3kh"]
+[gd_scene load_steps=15 format=3 uid="uid://dt8rlqurqk3kh"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_of05t"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_m8quq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ynl1e4bgm8p6" path="res://scenes/enemies/OutsideSpawner.tscn" id="9_1v62f"]
 [ext_resource type="PackedScene" uid="uid://c5nexqx88icl1" path="res://scenes/enemies/Elf.tscn" id="9_e1x8u"]
 [ext_resource type="PackedScene" uid="uid://dpnytpqi8ajkb" path="res://scenes/enemies/Elemental.tscn" id="10_4x2uf"]
+[ext_resource type="Script" path="res://scenes/enemies/ElementalSpawner.gd" id="10_5vycx"]
 [ext_resource type="PackedScene" uid="uid://cbws2mtjd4g0b" path="res://scenes/enemies/deer.tscn" id="10_l6l7j"]
 [ext_resource type="PackedScene" uid="uid://pdybk1uk28u5" path="res://scenes/player/weaponPickups/pistolPickup.tscn" id="11_yco6c"]
 [ext_resource type="Script" path="res://Interactions/Interaction Area/interaction_area.gd" id="12_waql0"]
@@ -87,15 +88,28 @@ position = Vector2(-178, -34)
 
 [node name="Node" type="Node" parent="." index="9"]
 
-[node name="OutsideSpawner" parent="." index="10" instance=ExtResource("9_1v62f")]
+[node name="ElfSpawner4" parent="." index="10" instance=ExtResource("9_1v62f")]
 position = Vector2(-7, 602)
 
-[node name="Elemental" parent="." index="11" instance=ExtResource("10_4x2uf")]
+[node name="ElfSpawner3" parent="." index="11" instance=ExtResource("9_1v62f")]
+position = Vector2(1036, -425)
 
-[node name="pistolPickup" parent="." index="12" instance=ExtResource("11_yco6c")]
+[node name="ElfSpawner2" parent="." index="12" instance=ExtResource("9_1v62f")]
+position = Vector2(56, -405)
+
+[node name="ElfSpawner1" parent="." index="13" instance=ExtResource("9_1v62f")]
+position = Vector2(1045, 602)
+
+[node name="ElementalSpawner1" parent="." index="14" instance=ExtResource("9_1v62f")]
+position = Vector2(2094, 127)
+script = ExtResource("10_5vycx")
+
+[node name="Elemental" parent="." index="15" instance=ExtResource("10_4x2uf")]
+
+[node name="pistolPickup" parent="." index="16" instance=ExtResource("11_yco6c")]
 position = Vector2(268, 136)
 
-[node name="Interactable" type="Area2D" parent="." index="13"]
+[node name="Interactable" type="Area2D" parent="." index="17"]
 position = Vector2(151, 115)
 script = ExtResource("12_waql0")
 interact_label = "[e] to open chest"
