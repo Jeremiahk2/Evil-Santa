@@ -15,13 +15,13 @@ var health = 100
 
 @onready var animation = $AnimationPlayer
 
-var weapon = "No weapon"
+var weapon = Globals.weapon
 
-var arr = ["No weapon", "No weapon", "No weapon"]
+var arr = Globals.arr
 
-var currNumberOfWeapons = 0
+var currNumberOfWeapons = Globals.currNumberOfWeapons
 
-var currWeapon = 0
+var currWeapon = Globals.currWeapon
 
 var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn')
 
@@ -32,8 +32,6 @@ var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn'
 @onready var assaultRifle = $assaultRifle
 
 @onready var shotgun = $shotgun
-
-
 
 
 func _ready():
@@ -49,6 +47,7 @@ func _ready():
 
 func _physics_process(delta):
 	#if the player is moving then play the running animation
+	print(currNumberOfWeapons)
 	if velocity.length() > 0:
 		animation.play("Run")
 	else:
@@ -67,13 +66,22 @@ func _physics_process(delta):
 		currWeapon = 0
 		weapon = arr[currWeapon]
 		
+		Globals.currWeapon = 0
+		Globals.weapon = arr[currWeapon]
+		
 	elif Input.is_action_just_pressed("press_2") && (currNumberOfWeapons >= 2):
 		currWeapon = 1
 		weapon = arr[currWeapon]
 		
+		Globals.currWeapon = 1
+		Globals.weapon = arr[currWeapon]
+		
 	elif Input.is_action_just_pressed("press_3") && (currNumberOfWeapons >= 3):
 		currWeapon = 2
 		weapon = arr[currWeapon]
+		
+		Globals.currWeapon = 2
+		Globals.weapon = arr[currWeapon]
 	
 	if weapon == "pistol":
 		assaultRifle.visible = false
@@ -204,7 +212,12 @@ func _on_pistol_pickup_pistol_picked_up():
 	arr[currNumberOfWeapons] = "pistol"
 	currWeapon = currNumberOfWeapons
 	weapon = arr[currWeapon]
-	currNumberOfWeapons = currNumberOfWeapons + 1
+	currNumberOfWeapons = Globals.currNumberOfWeapons + 1
+	
+	Globals.arr[Globals.currNumberOfWeapons] = "pistol"
+	Globals.currWeapon = Globals.currNumberOfWeapons
+	Globals.weapon = Globals.arr[currWeapon]
+	Globals.currNumberOfWeapons = Globals.currNumberOfWeapons + 1
 
 
 func _on_assault_rifle_pickup_assault_rifle_picked_up():
@@ -212,6 +225,11 @@ func _on_assault_rifle_pickup_assault_rifle_picked_up():
 	currWeapon = currNumberOfWeapons
 	weapon = arr[currWeapon]
 	currNumberOfWeapons = currNumberOfWeapons + 1
+	
+	Globals.arr[Globals.currNumberOfWeapons] = "assaultRifle"
+	Globals.currWeapon = currNumberOfWeapons
+	Globals.weapon = arr[currWeapon]
+	Globals.currNumberOfWeapons = Globals.currNumberOfWeapons + 1
 
 
 func _on_shotgun_pickup_shotgun_picked_up():
@@ -219,3 +237,8 @@ func _on_shotgun_pickup_shotgun_picked_up():
 	currWeapon = currNumberOfWeapons
 	weapon = arr[currWeapon]
 	currNumberOfWeapons = currNumberOfWeapons + 1
+	
+	Globals.arr[Globals.currNumberOfWeapons] = "shotgun"
+	Globals.currWeapon = Globals.currNumberOfWeapons
+	Globals.weapon = Globals.arr[currWeapon]
+	Globals.currNumberOfWeapons = Globals.currNumberOfWeapons + 1
