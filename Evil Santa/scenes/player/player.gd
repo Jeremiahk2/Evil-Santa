@@ -5,8 +5,6 @@ extends CharacterBody2D
 signal enter_gate
 signal open_chest
 
-signal set_new_pos(x1, y1)
-
 @export var MAX_SPEED = 200
 @export var ACCELERATION = 1500
 @export var FRICTION = 1200
@@ -166,5 +164,3 @@ func update_credits():
 
 func increase_credits(numCredits):
 	Globals.credits += numCredits
-
-
