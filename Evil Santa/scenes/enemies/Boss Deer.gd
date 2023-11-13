@@ -114,3 +114,11 @@ func incoming_damage(dmg):
 		
 func enemy():
 	pass
+
+
+
+
+
+
+
+
