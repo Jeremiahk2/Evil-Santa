@@ -5,7 +5,7 @@ signal boss_death
 var ProjectilePath = preload('res://scenes/enemies/BossDeerTwinLaser.tscn')
 var ProjectilePath2 = preload('res://scenes/enemies/BossDeerSnowBall.tscn')
 var speed = 100
-var health = 50
+var health = 300
 var player = null
 var Hero = null
 var go = false

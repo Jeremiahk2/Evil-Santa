@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dpnytpqi8ajkb" path="res://scenes/enemies/Elemental.tscn" id="10_4x2uf"]
 [ext_resource type="PackedScene" uid="uid://cbws2mtjd4g0b" path="res://scenes/enemies/deer.tscn" id="10_l6l7j"]
 [ext_resource type="PackedScene" uid="uid://pdybk1uk28u5" path="res://scenes/player/weaponPickups/pistolPickup.tscn" id="11_yco6c"]
-[ext_resource type="PackedScene" uid="uid://3kmb1x6ul861" path="res://scenes/player/weaponPickups/assaultRiflePickup.tscn" id="12_cmnqk"]
-[ext_resource type="PackedScene" uid="uid://bi2svbtwc7mw1" path="res://scenes/player/weaponPickups/shotgunPickup.tscn" id="13_3etud"]
+[ext_resource type="Script" path="res://Interactions/Interaction Area/interaction_area.gd" id="12_waql0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t68dc"]
+size = Vector2(32, 26)
 
 [node name="Outside" instance=ExtResource("1_of05t")]
 position = Vector2(113, 556)
@@ -91,15 +93,18 @@ position = Vector2(-7, 602)
 [node name="Elemental" parent="." index="11" instance=ExtResource("10_4x2uf")]
 
 [node name="pistolPickup" parent="." index="12" instance=ExtResource("11_yco6c")]
-position = Vector2(190, 133)
+position = Vector2(268, 136)
 
-[node name="assaultRiflePickup" parent="." index="13" instance=ExtResource("12_cmnqk")]
-position = Vector2(284, 134)
+[node name="Interactable" type="Area2D" parent="." index="13"]
+position = Vector2(151, 115)
+script = ExtResource("12_waql0")
+interact_label = "[e] to open chest"
+interact_type = "chest"
+interact_value = "getting next weapon"
 
-[node name="shotgunPickup" parent="." index="14" instance=ExtResource("13_3etud")]
-position = Vector2(345, 132)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(85, 20)
+shape = SubResource("RectangleShape2D_t68dc")
 
 [connection signal="enter_gate" from="Player" to="." method="_on_player_enter_gate"]
 [connection signal="pistolPickedUp" from="pistolPickup" to="Player" method="_on_pistol_pickup_pistol_picked_up"]
-[connection signal="assaultRiflePickedUp" from="assaultRiflePickup" to="Player" method="_on_assault_rifle_pickup_assault_rifle_picked_up"]
-[connection signal="shotgunPickedUp" from="shotgunPickup" to="Player" method="_on_shotgun_pickup_shotgun_picked_up"]

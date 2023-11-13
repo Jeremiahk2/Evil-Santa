@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bttxgi04yof1k"]
+[gd_scene load_steps=11 format=3 uid="uid://bttxgi04yof1k"]
 
 [ext_resource type="PackedScene" uid="uid://0qkxdf3aks0i" path="res://scenes/levels/level.tscn" id="1_ak0hs"]
 [ext_resource type="Script" path="res://scenes/levels/boss_level_1_2.gd" id="2_l11fe"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="5_4vem4"]
 [ext_resource type="Script" path="res://scenes/levels/Chest.gd" id="6_4v27h"]
 [ext_resource type="Texture2D" uid="uid://cfsvf73be4fcc" path="res://icon.svg" id="7_h3012"]
+[ext_resource type="PackedScene" uid="uid://3kmb1x6ul861" path="res://scenes/player/weaponPickups/assaultRiflePickup.tscn" id="8_gobxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iquh5"]
 
@@ -105,8 +106,11 @@ position = Vector2(490, 228)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_h3012")
 
+[node name="assaultRiflePickup" parent="." index="6" instance=ExtResource("8_gobxf")]
+position = Vector2(748, 257)
+
 [connection signal="remove_wall" from="." to="BackGround/BossWall" method="_on_boss_level_1_remove_wall"]
 [connection signal="enter_gate" from="Player" to="." method="_on_player_enter_gate"]
 [connection signal="open_chest" from="Player" to="." method="_on_player_open_chest"]
 [connection signal="open_chest" from="Player" to="NextWeapon/Chest" method="_on_player_open_chest"]
-[connection signal="set_new_pos" from="Player" to="." method="_on_player_set_new_pos"]
+[connection signal="assaultRiflePickedUp" from="assaultRiflePickup" to="Player" method="_on_assault_rifle_pickup_assault_rifle_picked_up"]
