@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/levels/BossWall.gd" id="4_bxn5y"]
 [ext_resource type="PackedScene" uid="uid://d3imke2o0j2nq" path="res://Interactions/Interaction Area/interaction_area.tscn" id="5_4vem4"]
 [ext_resource type="Script" path="res://scenes/levels/Chest.gd" id="6_4v27h"]
-[ext_resource type="Texture2D" uid="uid://cfsvf73be4fcc" path="res://icon.svg" id="7_h3012"]
+[ext_resource type="Texture2D" uid="uid://c2nr64jdc73fh" path="res://Assets/skull.png" id="7_wlqk1"]
 [ext_resource type="PackedScene" uid="uid://3kmb1x6ul861" path="res://scenes/player/weaponPickups/assaultRiflePickup.tscn" id="8_gobxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iquh5"]
@@ -103,8 +103,8 @@ script = ExtResource("6_4v27h")
 
 [node name="Skull" type="Sprite2D" parent="." index="5"]
 position = Vector2(490, 228)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("7_h3012")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_wlqk1")
 
 [node name="assaultRiflePickup" parent="." index="6" instance=ExtResource("8_gobxf")]
 position = Vector2(748, 257)
