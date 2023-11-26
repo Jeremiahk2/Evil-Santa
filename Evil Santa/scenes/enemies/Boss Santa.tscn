@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://de57yqaaavobl" path="res://Assets/Santa.png" id="2_w5h06"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nqfno"]
-radius = 247.78
+radius = 732.576
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mpgo"]
 
