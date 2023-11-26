@@ -32,6 +32,7 @@ shape = SubResource("CircleShape2D_ycmln")
 position = Vector2(29, 0)
 
 [node name="NoseLaserCooldown" type="Timer" parent="."]
+wait_time = 3.5
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

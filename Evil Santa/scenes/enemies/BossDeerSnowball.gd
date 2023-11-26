@@ -65,6 +65,7 @@ func _on_alert_body_entered(body):
 		player_inattack_zone = true
 		Hero = body
 		deal_with_damage()
+	self.queue_free()
 
 
 func _on_alert_body_exited(body):
