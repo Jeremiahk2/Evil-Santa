@@ -41,7 +41,6 @@ func _physics_process(delta):
 	
 	
 func Attack_1():
-	print("shoot twin laser")
 	var projectile = ProjectilePath.instantiate()
 
 	

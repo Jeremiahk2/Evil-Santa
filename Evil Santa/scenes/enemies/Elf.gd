@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 
-var speed = 50
-var health = 50
+var speed = 120
+var health = 45
 var player = null
 var Hero = null
 var go = false

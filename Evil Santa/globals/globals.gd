@@ -15,3 +15,5 @@ var arr = ["No weapon", "No weapon", "No weapon"]
 var currNumberOfWeapons = 0
 
 var currWeapon = 0
+
+var Fullscreen = false

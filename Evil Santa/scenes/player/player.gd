@@ -15,14 +15,6 @@ var health = 100
 
 @onready var animation = $AnimationPlayer
 
-var weapon = Globals.weapon
-
-var arr = Globals.arr
-
-var currNumberOfWeapons = Globals.currNumberOfWeapons
-
-var currWeapon = Globals.currWeapon
-
 var BULLET: PackedScene = preload('res://scenes/player/weapons/rifleBullet.tscn')
 
 @onready var attackTimer = $AttackTimer
@@ -61,50 +53,31 @@ func _physics_process(delta):
 	#rotate the player to face the mouse
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("press_1") && (currNumberOfWeapons >= 1):
-		currWeapon = 0
-		weapon = arr[currWeapon]
-		
+	if Input.is_action_just_pressed("press_1") && (Globals.currNumberOfWeapons >= 1):
 		Globals.currWeapon = 0
-		Globals.weapon = arr[currWeapon]
+		Globals.weapon = Globals.arr[Globals.currWeapon]
 		
-	elif Input.is_action_just_pressed("press_2") && (currNumberOfWeapons >= 2):
-		currWeapon = 1
-		weapon = arr[currWeapon]
-		
+	elif Input.is_action_just_pressed("press_2") && (Globals.currNumberOfWeapons >= 2):
 		Globals.currWeapon = 1
-		Globals.weapon = arr[currWeapon]
+		Globals.weapon = Globals.arr[Globals.currWeapon]
 		
-	elif Input.is_action_just_pressed("press_3") && (currNumberOfWeapons >= 3):
-		currWeapon = 2
-		weapon = arr[currWeapon]
-		
+	elif Input.is_action_just_pressed("press_3") && (Globals.currNumberOfWeapons >= 3):
 		Globals.currWeapon = 2
-		Globals.weapon = arr[currWeapon]
-	
-	if weapon == "pistol":
-		assaultRifle.visible = false
-		assaultRifle.falseAvailable()
-		shotgun.visible = false
-		shotgun.falseAvailable()
-		pistol.visible = true
-		pistol.trueAvailable()
-	elif weapon == "assaultRifle":
-		pistol.visible = false
-		pistol.falseAvailable()
-		shotgun.visible = false
-		shotgun.falseAvailable()
-		assaultRifle.visible = true
-		assaultRifle.trueAvailable()
-	elif weapon == "shotgun":
-		pistol.visible = false
-		pistol.falseAvailable()
-		assaultRifle.visible = false
-		assaultRifle.falseAvailable()
-		shotgun.visible = true
-		shotgun.trueAvailable()
-		
-	
+		Globals.weapon = Globals.arr[Globals.currWeapon]
+	elif Input.is_action_just_pressed("wheel_up") && (Globals.currNumberOfWeapons != 0):
+		Globals.currWeapon = (Globals.currWeapon + 1) % Globals.currNumberOfWeapons
+		Globals.weapon = Globals.arr[Globals.currWeapon]
+	elif Input.is_action_just_pressed("wheel_down") && Globals.currNumberOfWeapons != 0:
+		Globals.currWeapon = abs((Globals.currWeapon - 1) % Globals.currNumberOfWeapons)
+		Globals.weapon = Globals.arr[Globals.currWeapon]
+	elif Input.is_action_just_pressed("Fullscreen"):
+		if (Globals.Fullscreen):
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			Globals.Fullscreen = false
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			Globals.Fullscreen = true
+	checkWeapons()
 	#if weapon == "pistol":
 		#if PISTOL:
 			#var pistolGun = PISTOL.instantiate()
@@ -115,7 +88,36 @@ func _physics_process(delta):
 	#if Input.is_action_just_pressed("left_click") and attackTimer.is_stopped():
 		#var bullet_direction = self.global_position.direction_to(get_global_mouse_position())
 		#shoot_bullet(bullet_direction)
-	
+
+func checkWeapons():
+	if Globals.currNumberOfWeapons == 0:
+		assaultRifle.visible = false
+		assaultRifle.falseAvailable()
+		shotgun.visible = false
+		shotgun.falseAvailable()
+		pistol.visible = false
+		pistol.falseAvailable()
+	elif Globals.weapon == "pistol":
+		assaultRifle.visible = false
+		assaultRifle.falseAvailable()
+		shotgun.visible = false
+		shotgun.falseAvailable()
+		pistol.visible = true
+		pistol.trueAvailable()
+	elif Globals.weapon == "assaultRifle":
+		pistol.visible = false
+		pistol.falseAvailable()
+		shotgun.visible = false
+		shotgun.falseAvailable()
+		assaultRifle.visible = true
+		assaultRifle.trueAvailable()
+	elif Globals.weapon == "shotgun":
+		pistol.visible = false
+		pistol.falseAvailable()
+		assaultRifle.visible = false
+		assaultRifle.falseAvailable()
+		shotgun.visible = true
+		shotgun.trueAvailable()
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	axis.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
@@ -151,8 +153,6 @@ func incoming_damage(dmg):
 	$"HUD/Health Bar/Health Bar".update_health(Globals.health / 10.0)
 	if Globals.health <= 0:
 		get_tree().change_scene_to_file("res://scenes/Menus/DeathScreen.tscn")
-	
-	
 #func shoot_bullet(bullet_direction: Vector2):
 	#if BULLET:
 		#var bullet = BULLET.instantiate()
@@ -211,36 +211,25 @@ func increase_credits(numCredits):
 
 
 func _on_pistol_pickup_pistol_picked_up():
-	arr[currNumberOfWeapons] = "pistol"
-	currWeapon = currNumberOfWeapons
-	weapon = arr[currWeapon]
-	currNumberOfWeapons = Globals.currNumberOfWeapons + 1
-	
 	Globals.arr[Globals.currNumberOfWeapons] = "pistol"
 	Globals.currWeapon = Globals.currNumberOfWeapons
-	Globals.weapon = Globals.arr[currWeapon]
+	Globals.weapon = Globals.arr[Globals.currWeapon]
 	Globals.currNumberOfWeapons = Globals.currNumberOfWeapons + 1
+	checkWeapons()
 
 
 func _on_assault_rifle_pickup_assault_rifle_picked_up():
-	arr[currNumberOfWeapons] = "assaultRifle"
-	currWeapon = currNumberOfWeapons
-	weapon = arr[currWeapon]
-	currNumberOfWeapons = currNumberOfWeapons + 1
-	
 	Globals.arr[Globals.currNumberOfWeapons] = "assaultRifle"
-	Globals.currWeapon = currNumberOfWeapons
-	Globals.weapon = arr[currWeapon]
+	Globals.currWeapon = Globals.currNumberOfWeapons
+	Globals.weapon = Globals.arr[Globals.currWeapon]
 	Globals.currNumberOfWeapons = Globals.currNumberOfWeapons + 1
+	checkWeapons()
 
 
 func _on_shotgun_pickup_shotgun_picked_up():
-	arr[currNumberOfWeapons] = "shotgun"
-	currWeapon = currNumberOfWeapons
-	weapon = arr[currWeapon]
-	currNumberOfWeapons = currNumberOfWeapons + 1
 	
 	Globals.arr[Globals.currNumberOfWeapons] = "shotgun"
 	Globals.currWeapon = Globals.currNumberOfWeapons
-	Globals.weapon = Globals.arr[currWeapon]
+	Globals.weapon = Globals.arr[Globals.currWeapon]
 	Globals.currNumberOfWeapons = Globals.currNumberOfWeapons + 1
+	checkWeapons()
