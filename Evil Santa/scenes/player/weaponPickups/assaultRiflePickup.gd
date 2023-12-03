@@ -14,7 +14,11 @@ func _ready():
 func _process(delta):
 	animation.play("ready")
 	if(Input.is_action_pressed("Interact") && withinRange):
-		assaultRiflePickedUp.emit()
+		#assaultRiflePickedUp.emit()
+		Globals.arr[Globals.currNumberOfWeapons] = "assaultRifle"
+		Globals.currWeapon = Globals.currNumberOfWeapons
+		Globals.weapon = Globals.arr[Globals.currWeapon]
+		Globals.currNumberOfWeapons = Globals.currNumberOfWeapons + 1
 		queue_free()
 
 

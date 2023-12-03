@@ -21,8 +21,9 @@ func _on_player_open_chest():
 
 func _on_chest_chest_opened():
 	print("made it")
-	shotgun.visible = true
+	#shotgun.visible = true
 
 
 func _on_ready():
-	shotgun.visible = false
+	pass
+	#shotgun.visible = false
