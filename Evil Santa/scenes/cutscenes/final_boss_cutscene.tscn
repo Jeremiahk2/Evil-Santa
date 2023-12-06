@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5wwbe0fhdhnx"]
+[gd_scene load_steps=12 format=3 uid="uid://dferaot6hvot7"]
 
-[ext_resource type="Script" path="res://scenes/cutscenes/boss_1_cutscene.gd" id="1_vpgf2"]
-[ext_resource type="Texture2D" uid="uid://o5x24ko07ebq" path="res://scenes/player/weapons/PlayerBullet1.png" id="2_sg8ol"]
-[ext_resource type="Texture2D" uid="uid://bijk7lq442l0f" path="res://Assets/deer.png" id="3_4bm8o"]
-[ext_resource type="Texture2D" uid="uid://c2nr64jdc73fh" path="res://Assets/skull.png" id="3_cqmdu"]
-[ext_resource type="Texture2D" uid="uid://bfa4g042mcyvf" path="res://scenes/player/NewPlayerSpriteSheet.png" id="4_hn3ho"]
-[ext_resource type="FontFile" uid="uid://bby4uwv8jqfme" path="res://Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_tr11v"]
-[ext_resource type="Texture2D" uid="uid://ddaqmgma8h10i" path="res://scenes/player/weapons/pistol.png" id="7_q8lqh"]
+[ext_resource type="Script" path="res://scenes/cutscenes/final_boss_cutscene.gd" id="1_hm8xg"]
+[ext_resource type="Texture2D" uid="uid://dpntiscwh6x0n" path="res://Assets/Bomb.png" id="2_43c7y"]
+[ext_resource type="Texture2D" uid="uid://c2nr64jdc73fh" path="res://Assets/skull.png" id="3_trugp"]
+[ext_resource type="Texture2D" uid="uid://de57yqaaavobl" path="res://Assets/Santa.png" id="4_ameyg"]
+[ext_resource type="Texture2D" uid="uid://bfa4g042mcyvf" path="res://scenes/player/NewPlayerSpriteSheet.png" id="5_ioikn"]
+[ext_resource type="FontFile" uid="uid://bby4uwv8jqfme" path="res://Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="6_opch7"]
+[ext_resource type="Texture2D" uid="uid://dv6qavy4q3bn5" path="res://Assets/gift.png" id="7_e1kaa"]
+[ext_resource type="Texture2D" uid="uid://d2fp5eorhoaho" path="res://Assets/explode.png" id="8_alpp7"]
 
 [sub_resource type="Animation" id="Animation_rggcv"]
 length = 0.001
@@ -85,7 +86,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AnimationPlayer/Node2D/Bullet:visible")
+tracks/6/path = NodePath("AnimationPlayer/Node2D/bomb:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -97,7 +98,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("AnimationPlayer/Node2D/Bullet:position")
+tracks/7/path = NodePath("AnimationPlayer/Node2D/bomb:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -145,7 +146,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("AnimationPlayer/Node2D/Gun:visible")
+tracks/11/path = NodePath("AnimationPlayer/Node2D/gift:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -157,7 +158,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("AnimationPlayer/Node2D/Rudolph:modulate")
+tracks/12/path = NodePath("AnimationPlayer/Node2D/Boss:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -166,10 +167,82 @@ tracks/12/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimationPlayer/Node2D/gift:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer/Node2D/bomb:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AnimationPlayer/Node2D/explode:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AnimationPlayer/Node2D/explode:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AnimationPlayer/Node2D/Fin:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("AnimationPlayer/Node2D/explode:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_n8p1b"]
 resource_name = "dialogue_animation"
-length = 34.0
+length = 36.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -177,10 +250,10 @@ tracks/0/path = NodePath("AnimationPlayer/Node2D/PlayerLabel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 8.6, 11.5, 14.9, 20.4, 22.8, 25.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3, 5.5, 9.2, 11.3, 13.6, 15.6, 20.2, 21.7, 22.5, 23.3, 24.4, 25.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false, true, false, true, false, true]
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -213,10 +286,10 @@ tracks/3/path = NodePath("AnimationPlayer/Node2D/BossLabel:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 8.6, 11.5, 14.9, 20.4, 22.8, 25.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2.9, 5.6, 9.1, 11.4, 13.5, 15.7, 20.1, 27.7, 29.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, false, true, false, true, false, true, false]
+"values": [false, true, false, true, false, true, false, true, false, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -225,36 +298,16 @@ tracks/4/path = NodePath("AnimationPlayer/Node2D/Text:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1, 3, 3.5, 3.5001, 5.5, 6, 7.5, 8.5, 8.6, 10.7, 11.4, 11.5, 12.9, 14.1, 14.8, 14.9, 16.1, 17.6, 18.1, 19.8, 20.3, 20.4, 21.7, 22.7, 22.8, 24, 25, 25.1, 27.3, 28.1, 28.9, 29.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1, 2.3, 2.9, 3, 5, 5.5, 5.6, 8, 9.1, 9.2, 10.7, 11.3, 11.4, 12.9, 13.5, 13.6, 14.9, 15.6, 15.7, 17.5, 17.9, 19.5, 20.1, 20.2, 21.1, 21.7, 21.8, 22.5, 23.3, 23.4, 24.4, 25.3, 25.8, 25.9, 27.7, 28.8, 29.2, 29.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": ["", "Why did I get a bomb as my gift?!", "Why did I get a bomb as my gift?! 
-", "Why did I get a bomb as my gift?! 
-", "Why did I get a bomb as my gift?! 
-that isn't what I asked for!
-", "Why did I get a bomb as my gift?! 
-that isn't what I asked for!
-", "Why did I get a bomb as my gift?! 
-that isn't what I asked for!
-I said I wanted a PS5!", "Why did I get a bomb as my gift?! 
-that isn't what I asked for!
-I said I wanted a PS5!", "", "Oh! It was you who i delivered the bomb to. ", "Oh! It was you who i delivered the bomb to. ", "", "Why! why were you tring to kill me!", "Why! why were you tring to kill me!
-and why only me?", "Why! why were you tring to kill me!
-and why only me?", "", "How would i know?", "How would i know?
-I just delivered it as ordered.", "How would i know?
-I just delivered it as ordered.", "How would i know?
-I just delivered it as ordered.
-it was santa who told me to give it to you.", "How would i know?
-I just delivered it as ordered.
-it was santa who told me to give it to you.", "", "argh. and where can i find him?", "argh. and where can i find him?", "", "you will find him at the top of the castle.", "you will find him at the top of the castle.", "", "Well thanks for the info but, for delivering a bomb as a gift to 
-me i'm afraid you will need to die.
-", "Well thanks for the info but, for delivering a bomb as a gift to 
-me i'm afraid you will need to die.
-", "Well thanks for the info but, for delivering a bomb as a gift to 
-me i'm afraid you will need to die.
-goodbye rudolph.", "Well thanks for the info but, for delivering a bomb as a gift to 
-me i'm afraid you will need to die.
-goodbye rudolph."]
+"values": ["", "Wait! Don't kill me!", "Wait! Don't kill me!", "", "Why! Why did you try to blow me up?", "Why! Why did you try to blow me up?", "", "Haha! So it was you who wanted the PS5!", "Haha! So it was you who wanted the PS5!", "", "Yeah?
+So why did you give me a bomb?", "Yeah?
+So why did you give me a bomb?", "", "It was the next best thing.", "It was the next best thing.", "", "wait, so even you couldn't get one?", "wait, so even you couldn't get one?", "", "Yeah it's those damn scalpers!
+", "Yeah it's those damn scalpers!
+", "Yeah it's those damn scalpers!
+But luckily I still got one left.", "Yeah it's those damn scalpers!
+But luckily I still got one left.", "", "Then give it here.", "Then give it here.", "", "Yes!", "Yes!", "", "", "Not this time!", "Not this time!", "", "", "Uh oh.", "Uh oh.", ""]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -263,19 +316,19 @@ tracks/5/path = NodePath("AnimationPlayer/Node2D/Text:visible_ratio")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(8.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [0.0]
+"values": []
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AnimationPlayer/Node2D/Bullet:visible")
+tracks/6/path = NodePath("AnimationPlayer/Node2D/bomb:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1, 29.5, 30.1),
+"times": PackedFloat32Array(0, 1, 23.4, 27.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [false, false, true, false]
@@ -283,14 +336,14 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("AnimationPlayer/Node2D/Bullet:position")
+tracks/7/path = NodePath("AnimationPlayer/Node2D/bomb:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(29.5, 30.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(23.4, 25.9, 27.7),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(186, 196), Vector2(976, 196)]
+"values": [Vector2(255, 180), Vector2(255, 180), Vector2(976, 196)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -299,10 +352,10 @@ tracks/8/path = NodePath("AnimationPlayer/Node2D/Skull:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1, 30.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1, 30.3, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [false, false, true]
+"values": [false, false, true, false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -323,7 +376,7 @@ tracks/10/path = NodePath("AnimationPlayer/Node2D:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 34),
+"times": PackedFloat32Array(0, 36),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -331,26 +384,98 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("AnimationPlayer/Node2D/Gun:visible")
+tracks/11/path = NodePath("AnimationPlayer/Node2D/gift:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 29),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 21.8, 24.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("AnimationPlayer/Node2D/Rudolph:modulate")
+tracks/12/path = NodePath("AnimationPlayer/Node2D/Boss:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(30.3, 32.6),
+"times": PackedFloat32Array(29.8, 30.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimationPlayer/Node2D/gift:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(21.8, 22.4, 23.4, 24.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer/Node2D/bomb:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(23.4, 24.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AnimationPlayer/Node2D/explode:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(29.3, 30.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AnimationPlayer/Node2D/explode:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(30.2, 30.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AnimationPlayer/Node2D/Fin:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 34, 36),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("AnimationPlayer/Node2D/explode:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 29.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adgap"]
@@ -359,8 +484,8 @@ _data = {
 "dialogue_animation": SubResource("Animation_n8p1b")
 }
 
-[node name="boss_1_cutscene" type="Node2D"]
-script = ExtResource("1_vpgf2")
+[node name="final_boss_cutscene" type="Node2D"]
+script = ExtResource("1_hm8xg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -380,25 +505,27 @@ offset_top = 316.0
 offset_right = 1160.0
 offset_bottom = 576.0
 
-[node name="Bullet" type="Sprite2D" parent="AnimationPlayer/Node2D"]
+[node name="bomb" type="Sprite2D" parent="AnimationPlayer/Node2D"]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1027, 224)
-scale = Vector2(2.03125, 1.90625)
-texture = ExtResource("2_sg8ol")
+scale = Vector2(5, 5)
+texture = ExtResource("2_43c7y")
 
 [node name="Skull" type="Sprite2D" parent="AnimationPlayer/Node2D"]
 position = Vector2(1010, 209)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_cqmdu")
+texture = ExtResource("3_trugp")
 
-[node name="Rudolph" type="Sprite2D" parent="AnimationPlayer/Node2D"]
-position = Vector2(1116, 197)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_4bm8o")
+[node name="Boss" type="Sprite2D" parent="AnimationPlayer/Node2D"]
+position = Vector2(985, 168)
+rotation = 3.14159
+scale = Vector2(11, 11)
+texture = ExtResource("4_ameyg")
 
 [node name="Player" type="Sprite2D" parent="AnimationPlayer/Node2D"]
 position = Vector2(82, 174)
 scale = Vector2(10, 10)
-texture = ExtResource("4_hn3ho")
+texture = ExtResource("5_ioikn")
 hframes = 3
 
 [node name="Fade" type="ColorRect" parent="AnimationPlayer/Node2D"]
@@ -411,7 +538,7 @@ offset_left = 11.0
 offset_top = 333.0
 offset_right = 136.0
 offset_bottom = 376.0
-theme_override_fonts/font = ExtResource("4_tr11v")
+theme_override_fonts/font = ExtResource("6_opch7")
 theme_override_font_sizes/font_size = 32
 text = "Player:"
 
@@ -420,9 +547,9 @@ offset_left = 968.0
 offset_top = 330.0
 offset_right = 1110.0
 offset_bottom = 366.0
-theme_override_fonts/font = ExtResource("4_tr11v")
+theme_override_fonts/font = ExtResource("6_opch7")
 theme_override_font_sizes/font_size = 32
-text = "Rudolph:"
+text = "Santa:"
 
 [node name="Text" type="Label" parent="AnimationPlayer/Node2D"]
 offset_left = 92.0
@@ -430,16 +557,31 @@ offset_top = 386.0
 offset_right = 1023.0
 offset_bottom = 550.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_tr11v")
+theme_override_fonts/font = ExtResource("6_opch7")
 theme_override_font_sizes/font_size = 32
 
-[node name="Gun" type="Sprite2D" parent="AnimationPlayer/Node2D"]
-position = Vector2(193, 200)
-scale = Vector2(4.84375, 4.5625)
-texture = ExtResource("7_q8lqh")
-hframes = 4
+[node name="gift" type="Sprite2D" parent="AnimationPlayer/Node2D"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(258, 173)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_e1kaa")
+
+[node name="explode" type="Sprite2D" parent="AnimationPlayer/Node2D"]
+visible = false
+position = Vector2(965, 166)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_alpp7")
+
+[node name="Fin" type="Label" parent="AnimationPlayer/Node2D"]
+offset_right = 1175.0
+offset_bottom = 673.0
+theme_override_fonts/font = ExtResource("6_opch7")
+theme_override_font_sizes/font_size = 256
+text = "FIN"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 34.0
+wait_time = 36.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

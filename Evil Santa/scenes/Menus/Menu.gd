@@ -13,7 +13,7 @@ func _process(delta):
 
 #Change to beginning scene on start button.
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/outside.tscn")
+	get_tree().change_scene_to_file("res://scenes/cutscenes/opening_cutscene.tscn")
 
 #Switch to menu that explains the controls
 func _on_controls_button_pressed():

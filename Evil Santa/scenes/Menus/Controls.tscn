@@ -14,10 +14,10 @@ script = ExtResource("1_jfokx")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 354.0
+offset_left = 357.0
 offset_top = 91.0
-offset_right = 714.0
-offset_bottom = 335.0
+offset_right = 717.0
+offset_bottom = 363.0
 theme_override_fonts/normal_font = ExtResource("2_yj584")
 theme_override_fonts/bold_font = ExtResource("2_yj584")
 theme_override_font_sizes/normal_font_size = 16
@@ -33,6 +33,8 @@ move Down: S
 Look: Mouse
 Shoot: Mouse Button 1
 Object Interaction: e
+switch weapons: 1, 2, 3
+skip cutscene: esc
 
 
 
